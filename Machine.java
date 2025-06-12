@@ -4,7 +4,7 @@ import controller.PostResult; // The callback the hardware expects this class to
 // import controller.Aa; // other student-written
 // import controller.Bb; // classes that are needed
 // import controller.Cc; // by the Machine class
-import Buttons;
+//import Buttons;
 public class Machine implements Executer {
     public void doClick(PostResult result, String id){
         // process the click from the svg "id"
