@@ -9,6 +9,6 @@ public class Machine implements Executer {
     public void doClick(PostResult result, String id){
         // process the click from the svg "id"
         Buttons.hello(result);
-        result.setText("some_id","some_text");
+        result.setText("some_id","some_texttttt");
     }
 }
