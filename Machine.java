@@ -9,7 +9,9 @@ public class Machine implements Executer {
     public void doClick(PostResult result, String id){
         System.out.println("machine running 3");
         try {
+            System.out.println("machine running 4");
             Buttons.hello(result);
+            System.out.println("machine running 5");
         }
         catch (Exception e){
             System.out.println(e);
