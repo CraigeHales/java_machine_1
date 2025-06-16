@@ -7,7 +7,7 @@ import controller.PostResult; // The callback the hardware expects this class to
 import controller.Buttons;
 public class Machine implements Executer {
     public void doClick(PostResult result, String id){
-        System.out.println("machine running 3");
+        System.out.println("machine running 333");
         try {
             System.out.println("machine running 4");
             Buttons b = new Buttons();
