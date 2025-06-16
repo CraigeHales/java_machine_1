@@ -7,7 +7,7 @@ import controller.PostResult; // The callback the hardware expects this class to
 import controller.Buttons;
 public class Machine implements Executer {
     public void doClick(PostResult result, String id){
-        // process the click from the svg "id"
+        System.out.println("machine running");
         Buttons.hello(result);
         result.setText("some_id","some_texttttt");
     }
