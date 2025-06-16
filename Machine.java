@@ -15,7 +15,7 @@ public class Machine implements Executer {
         }
         catch (Exception e){
             System.out.println(e);
-            System.out.println(e.printStackTrace());
+            e.printStackTrace();
         }
             
         result.setText("some_id","some_texttttt");
