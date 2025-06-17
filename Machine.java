@@ -7,6 +7,21 @@ import controller.PostResult; // The callback the hardware expects this class to
 import controller.Buttons;
 public class Machine implements Executer {
     public void doClick(PostResult result, String id){
+
+        if (id.startsWith("init")) {
+            
+            result.setText("tspan_java_machine","Ice Cold Drinks");
+            result.setColor("tspan_java_machine","#3366ff");
+
+            result.setText("tspan_variety1","Coke");
+            result.setColor("tspan_variety1","#ffffff");
+            result.setColor("rect_variety1", "#ff3333");
+
+            result.setText("tspan_variety2","7-Up");
+            result.setColor("tspan_variety2","#333333");
+            result.setColor("rect_variety2", "#66ff66");
+        }
+        
         System.out.println("machine running 3343");
         try {
             System.out.println("machine running 4");
