@@ -23,7 +23,7 @@ public class Machine implements Executer {
 
             result.setText("tspan_variety3","Sprite");
             result.setColor("tspan_variety3","#ffffff");
-            result.setColor("rect_variety3", "#33ff33");
+            result.setColor("rect_variety3", "#33aa33");
 
             
         }
