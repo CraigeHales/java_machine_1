@@ -20,6 +20,12 @@ public class Machine implements Executer {
             result.setText("tspan_variety2","7-Up");
             result.setColor("tspan_variety2","#333333");
             result.setColor("rect_variety2", "#66ff66");
+
+            result.setText("tspan_variety3","Sprite");
+            result.setColor("tspan_variety3","#ffffff");
+            result.setColor("rect_variety3", "#33ff33");
+
+            
         }
         
         System.out.println("machine running 3343");
