@@ -41,6 +41,6 @@ public class Machine implements Executer {
             e.printStackTrace();
         }
             
-        result.setText("some_id","some_texttttt");
+        result.setText("some_id",id);
     }
 }
