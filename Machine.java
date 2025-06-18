@@ -9,7 +9,7 @@ public class Machine implements Executer {
     Selection selection = null;
     public Machine(){
         selection = new Selection();
-    }
+    }x
     public void doClick(PostResult result, String id){
 
         if (id.startsWith("init")) {            
@@ -22,7 +22,7 @@ public class Machine implements Executer {
 
             result.setText("tspan_variety2","7-Up");
             result.setColor("tspan_variety2","#333333");
-            result.setColor("rect_variety2", "#66ff00");
+            result.setColor("rect_variety2", "#66ff66");
 
             result.setText("tspan_variety3","Sprite");
             result.setColor("tspan_variety3","#ffffff");
