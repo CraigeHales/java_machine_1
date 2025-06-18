@@ -28,13 +28,9 @@ public class Machine implements Executer {
             
         }
         
-        System.out.println("machine running 3343");
         try {
-            System.out.println("machine running 4");
             Buttons b = new Buttons();
-            System.out.println("machine running 5");
             b.hello(result);
-            System.out.println("machine running 6");
         }
         catch (Exception e){
             System.out.println(e);
