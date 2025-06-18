@@ -6,10 +6,13 @@ import controller.PostResult; // The callback the hardware expects this class to
 // import controller.Cc; // by the Machine class
 import controller.Buttons;
 public class Machine implements Executer {
+    Selection selection = null;
+    public Machine(){
+        selection = new Selection();
+    }
     public void doClick(PostResult result, String id){
 
-        if (id.startsWith("init")) {
-            
+        if (id.startsWith("init")) {            
             result.setText("tspan_java_machine","Ice Cold Drinks");
             result.setColor("tspan_java_machine","#3366ff");
 
@@ -24,19 +27,9 @@ public class Machine implements Executer {
             result.setText("tspan_variety3","Sprite");
             result.setColor("tspan_variety3","#ffffff");
             result.setColor("rect_variety3", "#33aa33");
-
-            
         }
-        
-        try {
-            Buttons b = new Buttons();
-            b.hello(result);
+        else if ( id.contains("variety") ){
+            selection.press(id, result);
         }
-        catch (Exception e){
-            System.out.println(e);
-            e.printStackTrace();
-        }
-            
-        result.setText("some_id",id);
     }
 }
