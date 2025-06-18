@@ -15,7 +15,7 @@ public class Machine implements Executer {
 
             result.setText("tspan_variety1","Coke");
             result.setColor("tspan_variety1","#ffffff");
-            result.setColor("rect_variety1", "#ff33ff");
+            result.setColor("rect_variety1", "#ff3333");
 
             result.setText("tspan_variety2","7-Up");
             result.setColor("tspan_variety2","#333333");
