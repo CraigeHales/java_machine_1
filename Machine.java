@@ -29,7 +29,7 @@ public class Machine implements Executer {
             result.setColor("rect_variety3", "#33aa33");
         }
         else if ( id.contains("variety") ){
-            selection.press(id, result);z
+            selection.press(id, result);
         }
     }
 }
