@@ -1,10 +1,7 @@
 package controller; // the (virtual) pathname to the student-written files 
 import controller.Executer; // The interface the hardware expects this class to implement
 import controller.PostResult; // The callback the hardware expects this class to use
-// import controller.Aa; // other student-written
-// import controller.Bb; // classes that are needed
-// import controller.Cc; // by the Machine class
-// import controller.Buttons;
+
 public class Machine implements Executer {
     Selection selection = null;
     public Machine(){
@@ -28,7 +25,7 @@ public class Machine implements Executer {
             result.setColor("tspan_variety3","#ffffff");
             result.setColor("rect_variety3", "#33aa33");
         }
-        else if ( id.contains("variety") ){
+        else if ( id.startsWith("rect_variety") || id.startsWith("circle_add") ){
             selection.press(id, result);
         }
     }
