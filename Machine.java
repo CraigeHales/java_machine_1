@@ -26,8 +26,8 @@ public class Machine implements Executer {
             result.setColor("rect_variety3", "#33aa33");
         }
         else if ( id.startsWith("rect_variety") || id.startsWith("circle_add") ){
-            result.setText("tspan_github",id.subString(0,id.indexOf("_")));
-            result.setText("tspan_load",id.subString(1+id.indexOf("_")));
+            result.setText("tspan_github",id.substring(0,id.indexOf("_")));
+            result.setText("tspan_load",id.substring(1+id.indexOf("_")));
             selection.press(id, result);
         }
     }
