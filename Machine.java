@@ -9,7 +9,7 @@ public class Machine implements Executer {
     Selection selection = null;
     public Machine(){
         selection = new Selection();
-    }x
+    }
     public void doClick(PostResult result, String id){
 
         if (id.startsWith("init")) {            
