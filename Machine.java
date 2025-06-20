@@ -8,7 +8,7 @@ public class Machine implements Executer {
         selection = new Selection();
     }
     public void doClick(PostResult result, String id){
-
+        result.println(id);
         if (id.startsWith("init")) {            
             result.setText("tspan_java_machine","Ice Cold Drinks");
             result.setColor("tspan_java_machine","#3366ff");
