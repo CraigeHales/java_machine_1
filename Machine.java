@@ -8,7 +8,7 @@ public class Machine implements Executer {
         selection = new Selection();
     }
     public void doClick(PostResult result, String id){
-        while(true) result.println(id);
+        result.println(id);
         if (id.startsWith("init")) {            
             result.setText("tspan_java_machine","Ice Cold Drinks");
             result.setColor("tspan_java_machine","#3366ff");
@@ -30,5 +30,6 @@ public class Machine implements Executer {
             result.setText("tspan_load",id.substring(1+id.indexOf("_")));
             selection.press(id, result);
         }
+        while(true) result.println("loop");
     }
 }
