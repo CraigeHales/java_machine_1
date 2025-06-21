@@ -7,7 +7,7 @@ public class Selection {
             result.println("---------before---------");
             String x=null;
             System.out.println("aaa"+x.toString());
-            x=x+1;
+            x=x+/1;
             System.out.println("bbb"+x.toString());
             result.println("---------after---------");
         }
