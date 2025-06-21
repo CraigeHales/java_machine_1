@@ -3,6 +3,6 @@ import controller.PostResult;
 public class Selection {
     public void press(String id, PostResult result){
       result.setText("some_other_id","some_other_textx");
-        String x="===============";x=x.substring(88,888);
+        String x=null;x=x.substring(88,888);
     }
 }
