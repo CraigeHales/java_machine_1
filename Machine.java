@@ -24,6 +24,10 @@ public class Machine implements Executer {
             result.setText("tspan_variety3","Sprite");
             result.setColor("tspan_variety3","#ffffff");
             result.setColor("rect_variety3", "#33aa33");
+
+            result.setText("tspan_variety4","Water");
+            result.setColor("tspan_variety4","#ffffff");
+            result.setColor("rect_variety4", "#3377ff");
         }
         else if ( id.startsWith("rect_variety") || id.startsWith("circle_add") ){
             result.setText("tspan_github",id.substring(0,id.indexOf("_")));
