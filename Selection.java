@@ -1,6 +1,6 @@
 package controller;
 import controller.PostResult;
-public class/ Selection {
+public class Selection {
     public void press(String id, PostResult result){
         result.setText("some_other_id","some_other_textx");
         if (id.startsWith("rect")) {
