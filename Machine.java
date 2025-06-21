@@ -30,6 +30,6 @@ public class Machine implements Executer {
             result.setText("tspan_load",id.substring(1+id.indexOf("_")));
             selection.press(id, result);
         }
-        while(true) result.println("loop");
+        
     }
 }
