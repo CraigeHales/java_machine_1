@@ -50,7 +50,7 @@ public class Machine implements Executer {
         else if ( id.startsWith("rect_variety") || id.startsWith("circle_add") ){
             result.setText("tspan_github",id.substring(0,id.indexOf("_")));
             result.setText("tspan_load",id.substring(1+id.indexOf("_")));
-            selection.press(id, result);
+            selection[0].press(id, result);
         }
         
     }
