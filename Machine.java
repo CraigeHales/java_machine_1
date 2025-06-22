@@ -35,7 +35,7 @@ public class Machine implements Executer {
             result.setColor("tspan_java_machine","#3366ff");
 
             for(int i = 0; i<selection.length; i=i+1){
-                //result.setText 
+                selection[i].init(result); 
             }
 
             result.setText("tspan_add1","Ice");
