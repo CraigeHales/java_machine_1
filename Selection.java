@@ -26,6 +26,6 @@ public class Selection {
     
     public void press(String id, PostResult result){
         x = !x;
-        result.setColor("circle_github_load",x ? "red" : "blue");
+        result.setColor("circle_github_load",x ? "red" : "blue"); 
     }
 }
