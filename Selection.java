@@ -5,7 +5,7 @@ public class Selection {
     String id;
     String textColor;
     String backColor;
-    Addon add[];
+    Addon[] add;
     int prodPennies;
     int nStock;
     public Selection(String prodName,String id,String textColor,String backColor,
@@ -14,7 +14,7 @@ public class Selection {
     this.id = id;
     this.textColor = textColor;
     this.backColor = backColor;
-    this.add = new Addon()[3];
+    this.add = new Addon[3];
     this.add[0] = add0; 
     this.add[1] = add1; 
     this.add[2] = add2; 
