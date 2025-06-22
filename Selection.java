@@ -22,6 +22,10 @@ public class Selection {
         this.prodPennies = prodPennies;
         this.nStock = nStock;    
     }
+
+    public void init(PostResult result){
+        
+    }
     
     public void press(String id, PostResult result){
 
