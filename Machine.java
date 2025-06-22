@@ -45,8 +45,8 @@ public class Machine implements Executer {
             
         }
         else if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
-            int id = Integer.parseInt(id.subString(12));
-            selection[id].press(result);
+            int idi = Integer.parseInt(id.subString(12));
+            selection[idi].press(result);
         }
         x = !x;
         result.setColor("circle_github_load",x ? "red" : "blue");         
