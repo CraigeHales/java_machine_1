@@ -9,8 +9,7 @@ public class Selection {
     int prodPennies;
     int nStock;
 
-    public Selection(String prodName,String id,String textColor,String backColor,
-        int prodPennies,int nStock,Addon add0,Addon add1,Addon add2){
+    public Selection(String prodName,String id,String textColor,String backColor,int prodPennies,int nStock,Addon add0,Addon add1,Addon add2){
         this.prodName = prodName;
         this.id = id;
         this.textColor = textColor;
@@ -29,7 +28,9 @@ public class Selection {
         result.setText("tspan_"+id, prodName);
     }
     
-    public void press(String id, PostResult result){
-
+    public void press(PostResult result){
+        for(int i=0; i<add.length; i+=1) {
+            add[i].activateButton(result, "tspan_add"+i+1)
+        }
     }
 }

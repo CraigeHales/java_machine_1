@@ -6,13 +6,13 @@ public class Machine implements Executer {
     Selection[] selection;
     public Machine(/*PostResult result*/){
         //System.out.println("machine ctor x");
-        Addon addIce = new Addon();
-        Addon addCaffeine = new Addon();
-        Addon addSugar = new Addon();
-        Addon addLime = new Addon();
-        Addon addLemon = new Addon();
-        Addon addChocolate = new Addon();
-        Addon addVanilla = new Addon();
+        Addon addIce = new Addon("Ice",40);
+        Addon addCaffeine = new Addon("Caffeine",20);
+        Addon addSugar = new Addon("Sugar",30);
+        Addon addLime = new Addon("Lime",10);
+        Addon addLemon = new Addon("Lemon",10);
+        Addon addChocolate = new Addon("Chocolate",50);
+        Addon addVanilla = new Addon("Vanilla",60);
         selection = new Selection[6];
         selection[0] = new Selection("Coke","variety1","#ffffff","#ff3333",
             175,20,addIce,addCaffeine,addSugar);
@@ -37,20 +37,16 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        result.setText("tspan_add1","Pick a");
-        result.setText("tspan_add2","Drink");
-        result.setText("tspan_add3","Above");
-        
+        Addon:reset();
     }
     public void doClick(PostResult result, String id){
         result.println("machine.doclick("+id+")");
         if (id.startsWith("init")) {            
             
         }
-        else if ( id.startsWith("rect_variety") || id.startsWith("circle_add") ){
-            result.setText("tspan_github",id.substring(0,id.indexOf("_")));
-            result.setText("tspan_load",id.substring(1+id.indexOf("_")));
-            selection[0].press(id, result);
+        else if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
+            int id = Integer.parseInt(id.subString(12));
+            selection[id].press(result);
         }
         x = !x;
         result.setColor("circle_github_load",x ? "red" : "blue");         
