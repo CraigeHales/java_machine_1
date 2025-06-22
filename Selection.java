@@ -8,7 +8,8 @@ public class Selection {
     Addon[] add;
     int prodPennies;
     int nStock;
-    
+
+    static boolean x = false;
     public Selection(String prodName,String id,String textColor,String backColor,
         int prodPennies,int nStock,Addon add0,Addon add1,Addon add2){
         this.prodName = prodName;
@@ -24,7 +25,6 @@ public class Selection {
     }
     
     public void press(String id, PostResult result){
-        static boolean x = false;
         x = !x;
         result.setColor("circle_github_load",x ? "red" : "blue");
     }
