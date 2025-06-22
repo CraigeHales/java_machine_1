@@ -30,7 +30,7 @@ public class Selection {
     
     public void press(PostResult result){
         for(int i=0; i<add.length; i+=1) {
-            add[i].activateButton(result, "tspan_add"+i+1);
+            add[i].activateButton(result, "tspan_add"+i);
         }
     }
 }

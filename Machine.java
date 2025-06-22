@@ -14,17 +14,17 @@ public class Machine implements Executer {
         Addon addChocolate = new Addon("Chocolate",50);
         Addon addVanilla = new Addon("Vanilla",60);
         selection = new Selection[6];
-        selection[0] = new Selection("Coke","variety1","#ffffff","#ff3333",
+        selection[0] = new Selection("Coke","variety0","#ffffff","#ff3333",
             175,20,addIce,addCaffeine,addSugar);
-        selection[1] = new Selection("7-Up","variety2","#333333","#66ff66",
+        selection[1] = new Selection("7-Up","variety1","#333333","#66ff66",
             165,20,addIce,addLime,addSugar);
-        selection[2] = new Selection("Sprite","variety3","#ffffff","#33aa33",
+        selection[2] = new Selection("Sprite","variety2","#ffffff","#33aa33",
             155,20,addIce,addLemon,addLime);
-        selection[3] = new Selection("Water","variety4","#ffffff","#3377ff",
+        selection[3] = new Selection("Water","variety3","#ffffff","#3377ff",
             135,20,addIce,addLemon,addLime);
-        selection[4] = new Selection("Milk","variety5","#000000","#ffffff",
+        selection[4] = new Selection("Milk","variety4","#000000","#ffffff",
             250,20,addIce,addChocolate,addVanilla);
-        selection[5] = new Selection("Citrus","variety6","#000000","#ffff00",
+        selection[5] = new Selection("Citrus","variety5","#000000","#ffff00",
             200,20,addLemon,addLime,addSugar);
     }
     boolean x=false;
