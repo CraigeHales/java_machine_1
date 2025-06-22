@@ -24,7 +24,9 @@ public class Selection {
     }
 
     public void init(PostResult result){
-        
+        result.setColor("rect_"+id, backColor);
+        result.setColor("tspan_"+id, textColor);
+        result.setText("tspan_"+id, prodName);
     }
     
     public void press(String id, PostResult result){
