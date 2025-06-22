@@ -4,8 +4,8 @@ import controller.PostResult; // The callback the hardware expects this class to
 
 public class Machine implements Executer {
     Selection[] selection;
-    public Machine(PostResult result){
-        result.println("machine ctor x");
+    public Machine(/*PostResult result*/){
+        //result.println("machine ctor x");
         Addon addIce = new Addon();
         Addon addCaffeine = new Addon();
         Addon addSugar = new Addon();
@@ -28,19 +28,23 @@ public class Machine implements Executer {
             200,20,addLemon,addLime,addSugar);
     }
     boolean x=false;
+    public void init(PostResult result){
+        // give the machine a name
+        result.setText("tspan_java_machine","Ice Cold Drinks");
+        result.setColor("tspan_java_machine","#3366ff");
+        // initialize the rectangular selection buttons
+        for(int i = 0; i<selection.length; i=i+1){
+            selection[i].init(result); 
+        }
+
+        result.setText("tspan_add1","Pick a");
+        result.setText("tspan_add2","Drink");
+        result.setText("tspan_add3","Above");
+        
+    }
     public void doClick(PostResult result, String id){
         result.println("machine.doclick("+id+")");
         if (id.startsWith("init")) {            
-            result.setText("tspan_java_machine","Ice Cold Drinks");
-            result.setColor("tspan_java_machine","#3366ff");
-
-            for(int i = 0; i<selection.length; i=i+1){
-                selection[i].init(result); 
-            }
-
-            result.setText("tspan_add1","Ice");
-            result.setText("tspan_add2","Decaf");
-            result.setText("tspan_add3","Diet");
             
         }
         else if ( id.startsWith("rect_variety") || id.startsWith("circle_add") ){
