@@ -27,6 +27,7 @@ public class Machine implements Executer {
         selection[5] = new Selection("Citrus","variety6","#000000","#ffff00",
             200,20,addLemon,addLime,addSugar);
     }
+    boolean x=false;
     public void doClick(PostResult result, String id){
         result.println(id);
         if (id.startsWith("init")) {            
@@ -47,6 +48,7 @@ public class Machine implements Executer {
             result.setText("tspan_load",id.substring(1+id.indexOf("_")));
             selection[0].press(id, result);
         }
-        
+        x = !x;
+        result.setColor("circle_github_load",x ? "red" : "blue");         
     }
 }
