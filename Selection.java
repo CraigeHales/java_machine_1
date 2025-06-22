@@ -1,5 +1,5 @@
 package controller;
-import controller.PostResult;
+//import controller.PostResult;
 public class Selection {
     String prodName;
     String id;
