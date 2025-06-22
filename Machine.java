@@ -45,7 +45,7 @@ public class Machine implements Executer {
             
         }
         else if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
-            int idi = Integer.parseInt(id.subString(12));
+            int idi = Integer.parseInt(id.substring(12));
             selection[idi].press(result);
         }
         x = !x;
