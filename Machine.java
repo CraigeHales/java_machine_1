@@ -5,7 +5,7 @@ import controller.PostResult; // The callback the hardware expects this class to
 public class Machine implements Executer {
     Selection[] selection;
     public Machine(){
-        System.out.println("machine ctor");
+        System.out.println("machine ctor x");
         Addon addIce = new Addon();
         Addon addCaffeine = new Addon();
         Addon addSugar = new Addon();
