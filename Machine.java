@@ -3,9 +3,14 @@ import controller.Executer; // The interface the hardware expects this class to 
 import controller.PostResult; // The callback the hardware expects this class to use
 
 public class Machine implements Executer {
-    Selection selection = null;
+    Selection[] selection;
     public Machine(){
-        selection = new Selection();
+        Addon addIce = new Addon();
+        Addon addCaffeine = new Addon();
+        Addon addSugar = new Addon();
+        selection = new Selection[6];
+        selection[0] = new Selection("Coke","variety1","#ffffff","#ff3333",
+        175,20,addIce,addCaffeine,addSugar);
     }
     public void doClick(PostResult result, String id){
         result.println(id);
