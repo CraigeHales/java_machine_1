@@ -37,7 +37,7 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        Addon:reset();
+        Addon:reset(result);
     }
     public void doClick(PostResult result, String id){
         result.println("machine.doclick("+id+")");
