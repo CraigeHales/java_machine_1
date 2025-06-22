@@ -8,9 +8,23 @@ public class Machine implements Executer {
         Addon addIce = new Addon();
         Addon addCaffeine = new Addon();
         Addon addSugar = new Addon();
+        Addon addLime = new Addon();
+        Addon addLemon = new Addon();
+        Addon addChocolate = new Addon();
+        Addon addVanilla = new Addon();
         selection = new Selection[6];
         selection[0] = new Selection("Coke","variety1","#ffffff","#ff3333",
-        175,20,addIce,addCaffeine,addSugar);
+            175,20,addIce,addCaffeine,addSugar);
+        selection[1] = new Selection("7-Up","variety2","#333333","#66ff66",
+            165,20,addIce,addLime,addSugar);
+        selection[2] = new Selection("Sprite","variety3","#ffffff","#33aa33",
+            155,20,addIce,addLemon,addLime);
+        selection[3] = new Selection("Water","variety4","#ffffff","#3377ff",
+            135,20,addIce,addLemon,addLime);
+        selection[4] = new Selection("Milk","variety5","#000000","#ffffff",
+            250,20,addIce,addChocolate,addVanilla);
+        selection[5] = new Selection("Citrus","variety6","#000000","#ffff00",
+            200,20,addLemon,addLime,addSugar);
     }
     public void doClick(PostResult result, String id){
         result.println(id);
@@ -18,29 +32,6 @@ public class Machine implements Executer {
             result.setText("tspan_java_machine","Ice Cold Drinks");
             result.setColor("tspan_java_machine","#3366ff");
 
-            result.setText("tspan_variety1","Coke");
-            result.setColor("tspan_variety1","#ffffff");
-            result.setColor("rect_variety1", "#ff3333");
-
-            result.setText("tspan_variety2","7-Up");
-            result.setColor("tspan_variety2","#333333");
-            result.setColor("rect_variety2", "#66ff66");
-
-            result.setText("tspan_variety3","Sprite");
-            result.setColor("tspan_variety3","#ffffff");
-            result.setColor("rect_variety3", "#33aa33");
-
-            result.setText("tspan_variety4","Water");
-            result.setColor("tspan_variety4","#ffffff");
-            result.setColor("rect_variety4", "#3377ff");
-
-            result.setText("tspan_variety5","Milk");
-            result.setColor("tspan_variety5","#000000");
-            result.setColor("rect_variety5", "#ffffff");
-
-            result.setText("tspan_variety6","Lemonade");
-            result.setColor("tspan_variety6","#000000");
-            result.setColor("rect_variety6", "#ffff00");
 
             result.setText("tspan_add1","Ice");
             result.setText("tspan_add2","Decaf");
