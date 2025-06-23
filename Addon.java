@@ -16,7 +16,7 @@ public class Addon {
     }
 
     public void activateButton(PostResult result, String id) {
-        result.println("o  "+name);
+        result.println("⚫  "+name);
         result.setText(id, name);
     }
 }
