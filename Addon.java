@@ -10,9 +10,9 @@ public class Addon {
     }
 
     public static void reset(PostResult result){
-        result.setText("tspan_add1","Pick a");
-        result.setText("tspan_add2","Drink");
-        result.setText("tspan_add3","Above");
+        result.setText("tspan_add0","Pick a");
+        result.setText("tspan_add1","Drink");
+        result.setText("tspan_add2","Above");
     }
 
     public void activateButton(PostResult result, String id) {
