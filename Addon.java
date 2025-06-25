@@ -1,12 +1,18 @@
 package controller;
 public class Addon {
 
-    String name;
-    int pricePennies;
+    String yesName;
+    int yesPennies;
+    String noName;
+    int noPennies;
 
-    public Addon(String name, int pricePennies) {
-        this.name = name;
-        this.pricePennies = pricePennies;
+    boolean yes = false;
+
+    public Addon(String yesName, int yesPennies, String noName, int noPennies) {
+        this.yesName = yesName;
+        this.yesPennies = yesPennies;
+        this.noName = noName;
+        this.noPennies = noPennies;
     }
 
     public static void reset(PostResult result){
@@ -16,7 +22,28 @@ public class Addon {
     }
 
     public void activateButton(PostResult result, String id) {
-        result.println("⚫  "+name);
-        result.setText(id, name);
+        // result.println("⚫  "+name);
+        if (yes) {
+            result.setText(id, yesName);
+        }
+        else {
+            result.setText(id, noName);
+        }
     }
+
+    public void toggleButton(PostResult result) {
+        yes = !yes;
+        activateButton(result,id);
+    }
+
+    public int getPrice(PostResult result) {
+        // result.println("⚫  "+name);
+        if (yes) {
+            return yesPennies;
+        }
+        else {
+            return noPennies;
+        }
+    }
+
 }
