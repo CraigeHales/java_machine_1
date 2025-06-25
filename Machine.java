@@ -5,7 +5,7 @@ import controller.PostResult; // The callback the hardware expects this class to
 public class Machine implements Executer {
     Selection[] selection;
     static Selection gCurrentSelection = null;
-    static Coins coins = null;
+ //   static Coins coins = null;
     public Machine(/*PostResult result*/){
         //System.out.println("machine ctor x");
         Addon addIce = new Addon("Ice",40,"No Ice",0);
