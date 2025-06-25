@@ -36,6 +36,9 @@ public class Selection {
             add[i].activateButton(result, "tspan_add"+i);
         }
         result.setAudio("plop.mp3");
+        if (prodName.equals("Coke")) {
+            result.setAudio("ice.mp3");
+        }
     }
 
     public Addon getAddon(int i) {
