@@ -56,7 +56,7 @@ public class Machine implements Executer {
             int idi = Integer.parseInt(id.substring(10));
             selection[idi].press(result);
         }
-        else if ( id.startsWith("circle_coin_") ) {
+    /*    else if ( id.startsWith("circle_coin_") ) {
             String coin = id.substring(12); // "5" ... "100" and "return" and "mc_visa"
             if (coin.equals("return"))
                 coins.return(result);
@@ -65,7 +65,7 @@ public class Machine implements Executer {
             else {
                 coins.deposit(Integer.parseInt(coin));
             }
-        }
+        } */
         result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",gCurrentSelection.getPrice(result)/100.0 ) );
     }
 }
