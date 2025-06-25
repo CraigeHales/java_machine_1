@@ -32,7 +32,7 @@ public class Machine implements Executer {
     }
     boolean x=false;
     public void init(PostResult result){
-        result.println("Machine.init()")
+        result.println("Machine.init()");
         // give the machine a name
         result.setText("tspan_java_machine","Ice Cold Drinks");
         result.setColor("tspan_java_machine","#3366ff");
