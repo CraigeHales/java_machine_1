@@ -6,6 +6,8 @@ public class Addon {
     String noName;
     int noPennies;
 
+    String myId;
+
     boolean yes = false;
 
     public Addon(String yesName, int yesPennies, String noName, int noPennies) {
@@ -23,6 +25,7 @@ public class Addon {
 
     public void activateButton(PostResult result, String id) {
         // result.println("⚫  "+name);
+        myId = id;
         if (yes) {
             result.setText(id, yesName);
         }
@@ -33,7 +36,7 @@ public class Addon {
 
     public void toggleButton(PostResult result) {
         yes = !yes;
-        activateButton(result,id);
+        activateButton(result,myId);
     }
 
     public int getPrice(PostResult result) {
