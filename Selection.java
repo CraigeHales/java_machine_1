@@ -23,6 +23,7 @@ public class Selection {
     }
 
     public void init(PostResult result){
+        result.println("Selection.init: "+prodName);
         result.setColor("rect_"+id, backColor);
         result.setColor("tspan_"+id, textColor);
         result.setText("tspan_"+id, prodName);
