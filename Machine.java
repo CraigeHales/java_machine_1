@@ -44,16 +44,17 @@ public class Machine implements Executer {
         Addon.reset(result);
     }
     public void doClick(PostResult result, String id){
-        result.println("machine.doclick("+id+")");
         if (id.startsWith("init")) {            
             
         }
         else if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
+            result.println("machine.doclick("+id+")");
             int idi = Integer.parseInt(id.substring(12));
             selection[idi].press(result);
             gCurrentSelection = selection[idi];
         }
         else if ( id.startsWith("circle_add") ) {
+            result.println("machine.doclick("+id+")");
             int idi = Integer.parseInt(id.substring(10));
             selection[idi].press(result);
         }
