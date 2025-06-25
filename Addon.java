@@ -24,7 +24,7 @@ public class Addon {
     }
 
     public void activateButton(PostResult result, String id) {
-        result.printlnx("Addon.activateButton: " + namex + " " + id + " " + id);
+        result.printlnx("Addon.activateButton: " + yesName + " " + id + " " + id);
         myId = id;
         if (yes) {
             result.setText(id, yesName);
