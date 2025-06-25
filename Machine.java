@@ -66,6 +66,8 @@ public class Machine implements Executer {
                 coins.deposit(Integer.parseInt(coin));
             }
         } */
-        result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",gCurrentSelection.getPrice(result)/100.0 ) );
+        if ( gCurrentSelection != null ) {
+            result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",gCurrentSelection.getPrice(result)/100.0 ) );
+        }
     }
 }
