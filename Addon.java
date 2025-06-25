@@ -24,13 +24,14 @@ public class Addon {
     }
 
     public void activateButton(PostResult result, String id) {
-        result.printlnx("Addon.activateButton: " + yesName + " " + id + " " + id);
         myId = id;
         if (yes) {
             result.setText(id, yesName);
+            result.println("Addon.activateButton: " + yesName + " " + id + " " + id);
         }
         else {
             result.setText(id, noName);
+            result.println("Addon.activateButton: " + noName + " " + id + " " + id);
         }
     }
 
