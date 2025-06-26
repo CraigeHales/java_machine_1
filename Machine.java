@@ -52,6 +52,14 @@ public class Machine implements Executer {
             int idi = Integer.parseInt(id.substring(12));
             selection[idi].press(result);
             gCurrentSelection = selection[idi];
+            for(Selection s: selection){
+                if ( s == gCurrentSelection ) {
+                    s.on(result);
+                }
+                else {
+                    s.off(result);
+                }
+            }
         }
         else if ( id.startsWith("circle_add") ) {
             result.println("machine.doclick("+id+")");

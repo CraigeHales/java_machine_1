@@ -29,6 +29,33 @@ public class Selection {
         result.setText("tspan_"+id, prodName);
     }
     
+    public void on(PostResult result){
+        result.setColor("rect_"+id, backColor);
+        result.setColor("tspan_"+id, textColor);
+    }
+    
+    String dim(String c) { // cut the brightness in half. more or less.
+        c.replace("1","0");
+        c.replace("2","1");
+        c.replace("3","1");
+        c.replace("4","2");
+        c.replace("5","2");
+        c.replace("6","3");
+        c.replace("7","3");
+        c.replace("8","4");
+        c.replace("9","4");
+        c.replace("a","5");
+        c.replace("b","5");
+        c.replace("c","6");
+        c.replace("d","6");
+        c.replace("e","7");
+        c.replace("f","7");
+    }
+    public void off(PostResult result){
+        result.setColor("rect_"+id, dim(backColor));
+        result.setColor("tspan_"+id, dim(textColor));
+    }
+    
     public void press(PostResult result){
         result.println("select "+prodName);
         result.println("addons:");
