@@ -2,7 +2,7 @@ package controller;
 import controller.PostResult;
 public class Coinbox {
 
-
+    private int tended=0;
 
 
     public void mc_visa(PostResult result){}
