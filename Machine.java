@@ -42,6 +42,7 @@ public class Machine implements Executer {
         }
 
         Addon.reset(result);
+        result.setAudio("startup.mp3");
     }
     public void doClick(PostResult result, String id){
         if (id.startsWith("init")) {            
