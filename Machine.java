@@ -61,7 +61,7 @@ public class Machine implements Executer {
                 gCurrentSelection.getAddon(idi).press(result);
             }
             else {
-                result.setAudio("groantick.mp3")
+                result.setAudio("groantick.mp3");
             }
         }
     /*    else if ( id.startsWith("circle_coin_") ) {
