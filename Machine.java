@@ -56,7 +56,13 @@ public class Machine implements Executer {
         else if ( id.startsWith("circle_add") ) {
             result.println("machine.doclick("+id+")");
             int idi = Integer.parseInt(id.substring(10));
-            selection[idi].press(result);
+
+            if (gCurrentSelection != null){
+                gCurrentSelection.getAddon(idi).press(result);
+            }
+            else {
+                result.setAudio("groantick.mp3")
+            }
         }
     /*    else if ( id.startsWith("circle_coin_") ) {
             String coin = id.substring(12); // "5" ... "100" and "return" and "mc_visa"
