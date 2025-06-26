@@ -73,18 +73,63 @@ public class Machine implements Executer {
                 result.setAudio("groantick.mp3");
             }
         }
-    /*    else if ( id.startsWith("circle_coin_") ) {
-            String coin = id.substring(12); // "5" ... "100" and "return" and "mc_visa"
-            if (coin.equals("return"))
-                coins.return(result);
-            else if (coin.equals("mc_visa"))
-                coins.mc_visa(result);
-            else {
-                coins.deposit(Integer.parseInt(coin));
+        else if ( id.startsWith("circle_coin_") ) {
+            if (id.endsWith("mc_visa")) {
+                coinbox.mc_visa(result);
             }
-        } */
+            else if (id.endsWith("coin_return")) {
+                coinbox.coin_return(result);
+            }
+            else {
+                coinbox.add(result, Integer.parseInt(id.substring(12)));
+            }
+        }
+
         if ( gCurrentSelection != null ) {
-            result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",gCurrentSelection.getPrice(result)/100.0 ) );
+            int needed = gCurrentSelection.getPrice(result);
+            int tended = coinbox.tended(result);
+            String thanks = null;
+            if (needed > 0) {
+                if (tended > needed) {
+                    thanks = "Change below";
+                }
+                else if (tended==needed) {
+                    thanks = "You're cool";
+                }
+                else if (tended == -1) { // covered by mc/visa
+                    thanks = "MC/Visa billed";
+                    tended = needed;
+                }
+                else {
+                    assert tended < needed;
+                    thanks = "still needed";
+                }
+            }
+            else{
+                thanks = "Pick a Drink";
+            }
+            result.setText("tspan_still_needed",thanks);
+
+            if ( tended >= needed ) {
+                int change = tended - needed;
+                result.setText("tspan_dollar_value_needed", "Thanks!" );
+                int c100 = change % 100;
+                change = change - c100;
+                result.setText("tspan_return_5x0", "$1 x " + c100);
+                int c25 = change % 25;
+                change = change - c25;
+                result.setText("tspan_return_5x0", "25 x " + c25);
+                int c10 = change % 10;
+                change = change - c10;
+                result.setText("tspan_return_5x0", "10 x " + c10);
+                int c5 = change % 5;
+                change = change - c5;
+                result.setText("tspan_return_5x0", "5 x " + c5);
+                assert change == 0;
+            }
+            else {
+                result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(needed - tended)/100.0 ) );
+            }
         }
     }
 }
