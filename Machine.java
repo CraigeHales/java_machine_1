@@ -28,7 +28,7 @@ public class Machine implements Executer {
             250,20,addIce,addChocolate,addVanilla);
         selection[5] = new Selection("Citrus","variety5","#000000","#ffff00",
             200,20,addLemon,addLime,addSugar);
-     //   coins = new Coins();
+        coinbox = new Coinbox();
     }
     boolean x=false;
     public void init(PostResult result){
