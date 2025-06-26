@@ -5,6 +5,7 @@ import controller.PostResult; // The callback the hardware expects this class to
 public class Machine implements Executer {
     Selection[] selection;
     static Selection gCurrentSelection = null;
+    Coinbox coinbox = null;
  //   static Coins coins = null;
     public Machine(/*PostResult result*/){
         //System.out.println("machine ctor x");
@@ -28,7 +29,7 @@ public class Machine implements Executer {
             250,20,addIce,addChocolate,addVanilla);
         selection[5] = new Selection("Citrus","variety5","#000000","#ffff00",
             200,20,addLemon,addLime,addSugar);
-        Coinbox coinbox = new Coinbox(); 
+        coinbox = new Coinbox(); 
     }
     boolean x=false;
     public void init(PostResult result){
