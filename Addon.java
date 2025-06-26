@@ -35,7 +35,7 @@ public class Addon {
         }
     }
 
-    public void toggleButton(PostResult result) {
+    public void press(PostResult result) {
         yes = !yes;
         activateButton(result,myId);
     }
