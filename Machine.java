@@ -2,13 +2,24 @@ package controller; // the (virtual) pathname to the student-written files
 import controller.Executer; // The interface the hardware expects this class to implement
 import controller.PostResult; // The callback the hardware expects this class to use
 
+/* how to run a timed sequence?
+
+    use a list of timed operations; this will make drink delivery and coinbox delivery
+    simpler (and not another statemachine that callbacks would want.)
+
+    that will change the result block to be a list of timed results.
+ */
+
 public class Machine implements Executer {
     Selection[] selection;
     static Selection gCurrentSelection = null;
     Coinbox coinbox = null;
  //   static Coins coins = null;
     public Machine(/*PostResult result*/){
-        //System.out.println("machine ctor x");
+        // there are more addon possibilities than buttons; each selection will
+        // choose exactyl three addons for the three buttons. Each addon remembers
+        // its current state; if it is shared between two selections then the
+        // state is shared as well.
         Addon addIce = new Addon("Ice",40,"No Ice",0);
         Addon addCaffeine = new Addon("Caf",0,"Decaf",10);
         Addon addSugar = new Addon("Sugar",30,"Diet",0);
@@ -130,6 +141,11 @@ public class Machine implements Executer {
             }
             else {
                 result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(needed - tended)/100.0 ) );
+            }
+        }
+        else { // nothing selected, light them all (unless they are out?)
+            for(Selection s: selection){
+                s.on(result);
             }
         }
     }
