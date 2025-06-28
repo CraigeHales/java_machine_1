@@ -54,7 +54,7 @@ public class Machine implements Executer {
         }
 
         Addon.reset(result);
-        result.setAudio("startup.mp3");
+        result.setAudio(0,"startup.mp3");
     }
     public void doClick(PostResult result, String id){
         if (id.startsWith("init")) {            
@@ -82,7 +82,7 @@ public class Machine implements Executer {
                 gCurrentSelection.getAddon(idi).press(result);
             }
             else {
-                result.setAudio("groantick.mp3");
+                result.setAudio("groantick.mp3",0.0);
             }
         }
         else if ( id.startsWith("circle_coin_") ) {
@@ -122,7 +122,7 @@ public class Machine implements Executer {
             }
             result.setText("tspan_still_needed",thanks);
 
-            if ( tended >= needed ) {
+            if ( tended >= needed ) { // deliver drink and partial reset (leave coins in return and drink in dispenser, but go to no drink selected)
                 int change = tended - needed;
                 result.setText("tspan_dollar_value_needed", "Thanks!" );
                 int c100 = change % 100;
@@ -138,6 +138,10 @@ public class Machine implements Executer {
                 change = change - c5;
                 result.setText("tspan_return_5x0", "5 x " + c5);
                 assert change == 0;
+
+                // run all the dispenser audio and animation
+
+                // and reset the lights
             }
             else {
                 result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(needed - tended)/100.0 ) );
