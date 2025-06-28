@@ -151,7 +151,7 @@ public class Machine implements Executer {
         }
         else { // nothing selected, light them all (unless they are out?)
             for(Selection s: selection){
-                s.on(result);
+                s.on(result,1000*Math.random());
             }
         }
     }
