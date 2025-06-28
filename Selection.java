@@ -29,9 +29,9 @@ public class Selection {
         result.setText("tspan_"+id, prodName,0);
     }
     
-    public void on(PostResult result){
-        result.setColor("rect_"+id, backColor,0);
-        result.setColor("tspan_"+id, textColor,0);
+    public void on(PostResult result,int delay){
+        result.setColor("rect_"+id, backColor,delay);
+        result.setColor("tspan_"+id, textColor,delay);
     }
     
     String dim(String c) { // cut the brightness in half. more or less.
@@ -52,9 +52,9 @@ public class Selection {
         c=c.replace("f","7");
         return c;
     }
-    public void off(PostResult result){
-        result.setColor("rect_"+id, dim(backColor),0);
-        result.setColor("tspan_"+id, dim(textColor),0);
+    public void off(PostResult result, int delay){
+        result.setColor("rect_"+id, dim(backColor),delay);
+        result.setColor("tspan_"+id, dim(textColor),delay);
     }
     
     public void press(PostResult result){
