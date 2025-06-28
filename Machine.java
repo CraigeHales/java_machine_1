@@ -65,12 +65,14 @@ public class Machine implements Executer {
             int idi = Integer.parseInt(id.substring(12));
             selection[idi].press(result);
             gCurrentSelection = selection[idi];
+            int demodelay =0;
             for(Selection s: selection){
                 if ( s == gCurrentSelection ) {
-                    s.on(result);
+                    s.on(result,100);
                 }
                 else {
-                    s.off(result);
+                    demodelay += 1;
+                    s.off(result,100*demodelay);
                 }
             }
         }
