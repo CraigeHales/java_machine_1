@@ -18,19 +18,19 @@ public class Addon {
     }
 
     public static void reset(PostResult result){
-        result.setText("tspan_add0","Pick a");
-        result.setText("tspan_add1","Drink");
-        result.setText("tspan_add2","Above");
+        result.setText("tspan_add0","Pick a",0);
+        result.setText("tspan_add1","Drink",0);
+        result.setText("tspan_add2","Above",0);
     }
 
     public void activateButton(PostResult result, String id) {
         myId = id;
         if (yes) {
-            result.setText(id, yesName);
+            result.setText(id, yesName,0);
             result.println("Addon.activateButton: " + yesName + " " + id + " " + id);
         }
         else {
-            result.setText(id, noName);
+            result.setText(id, noName,0);
             result.println("Addon.activateButton: " + noName + " " + id + " " + id);
         }
     }

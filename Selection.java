@@ -24,14 +24,14 @@ public class Selection {
 
     public void init(PostResult result){
         result.println("Selection.init: "+prodName);
-        result.setColor("rect_"+id, backColor);
-        result.setColor("tspan_"+id, textColor);
-        result.setText("tspan_"+id, prodName);
+        result.setColor("rect_"+id, backColor,0);
+        result.setColor("tspan_"+id, textColor,0);
+        result.setText("tspan_"+id, prodName,0);
     }
     
     public void on(PostResult result){
-        result.setColor("rect_"+id, backColor);
-        result.setColor("tspan_"+id, textColor);
+        result.setColor("rect_"+id, backColor,0);
+        result.setColor("tspan_"+id, textColor,0);
     }
     
     String dim(String c) { // cut the brightness in half. more or less.
@@ -53,8 +53,8 @@ public class Selection {
         return c;
     }
     public void off(PostResult result){
-        result.setColor("rect_"+id, dim(backColor));
-        result.setColor("tspan_"+id, dim(textColor));
+        result.setColor("rect_"+id, dim(backColor),0);
+        result.setColor("tspan_"+id, dim(textColor),0);
     }
     
     public void press(PostResult result){
@@ -65,7 +65,7 @@ public class Selection {
         }
         result.setAudio("plop.mp3");
         if (prodName.equals("Coke")) {
-            result.setAudio("ice.mp3");
+            result.setAudio("ice.mp3",0);
         }
     }
 

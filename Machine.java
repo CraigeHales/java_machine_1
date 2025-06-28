@@ -46,15 +46,15 @@ public class Machine implements Executer {
     public void init(PostResult result){
         result.println("Machine.init()");
         // give the machine a name
-        result.setText("tspan_java_machine","Ice Cold Drinks");
-        result.setColor("tspan_java_machine","#3366ff");
+        result.setText("tspan_java_machine","Ice Cold Drinks",0);
+        result.setColor("tspan_java_machine","#3366ff",0);
         // initialize the rectangular selection buttons
         for(int i = 0; i<selection.length; i=i+1){
             selection[i].init(result); 
         }
 
         Addon.reset(result);
-        result.setAudio(0,"startup.mp3");
+        result.setAudio("startup.mp3",0);
     }
     public void doClick(PostResult result, String id){
         if (id.startsWith("init")) {            
@@ -82,7 +82,7 @@ public class Machine implements Executer {
                 gCurrentSelection.getAddon(idi).press(result);
             }
             else {
-                result.setAudio("groantick.mp3",0.0);
+                result.setAudio("groantick.mp3",0);
             }
         }
         else if ( id.startsWith("circle_coin_") ) {
@@ -120,23 +120,23 @@ public class Machine implements Executer {
             else{
                 thanks = "Pick a Drink";
             }
-            result.setText("tspan_still_needed",thanks);
+            result.setText("tspan_still_needed",thanks,0);
 
             if ( tended >= needed ) { // deliver drink and partial reset (leave coins in return and drink in dispenser, but go to no drink selected)
                 int change = tended - needed;
-                result.setText("tspan_dollar_value_needed", "Thanks!" );
+                result.setText("tspan_dollar_value_needed", "Thanks!" ,0);
                 int c100 = change % 100;
                 change = change - c100;
-                result.setText("tspan_return_5x0", "$1 x " + c100);
+                result.setText("tspan_return_5x0", "$1 x " + c100,0);
                 int c25 = change % 25;
                 change = change - c25;
-                result.setText("tspan_return_5x0", "25 x " + c25);
+                result.setText("tspan_return_5x0", "25 x " + c25,0);
                 int c10 = change % 10;
                 change = change - c10;
-                result.setText("tspan_return_5x0", "10 x " + c10);
+                result.setText("tspan_return_5x0", "10 x " + c10,0);
                 int c5 = change % 5;
                 change = change - c5;
-                result.setText("tspan_return_5x0", "5 x " + c5);
+                result.setText("tspan_return_5x0", "5 x " + c5,0);
                 assert change == 0;
 
                 // run all the dispenser audio and animation
@@ -144,7 +144,7 @@ public class Machine implements Executer {
                 // and reset the lights
             }
             else {
-                result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(needed - tended)/100.0 ) );
+                result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(needed - tended)/100.0 ),0);
             }
         }
         else { // nothing selected, light them all (unless they are out?)
