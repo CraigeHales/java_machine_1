@@ -88,15 +88,10 @@ public class Machine implements Executer {
             }
         }
         else if ( id.startsWith("circle_coin_") ) {
-            if (id.endsWith("mc_visa")) {
-                coinbox.mc_visa(result);
-            }
-            else if (id.endsWith("coin_return")) {
-                coinbox.coin_return(result);
-            }
-            else {
-                coinbox.add(result, Integer.parseInt(id.substring(12)));
-            }
+            addMoney(result, id.substring(12));
+        }
+        else if ( id.equals("rect_coin_change") ) {
+            takeChange(result);
         }
 
         if ( gCurrentSelection != null ) {
@@ -123,36 +118,74 @@ public class Machine implements Executer {
                 thanks = "Pick a Drink";
             }
             result.setText("tspan_still_needed",thanks,0);
+            coinbox.showTended(result,needed);
+//             if ( tended >= needed ) { // deliver drink and partial reset (leave coins in return and drink in dispenser, but go to no drink selected)
+//     // int change = tended - needed;
+// // result.setText("tspan_dollar_value_needed", "Thanks!" ,0);
+//     // int c100 = change % 100;
+//     // change = change - c100;
+//     // result.setText("tspan_return_5x0", "$1 x " + c100,0);
+//     // int c25 = change % 25;
+//     // change = change - c25;
+//     // result.setText("tspan_return_5x0", "25 x " + c25,0);
+//     // int c10 = change % 10;
+//     // change = change - c10;
+//     // result.setText("tspan_return_5x0", "10 x " + c10,0);
+//     // int c5 = change % 5;
+//     // change = change - c5;
+//     // result.setText("tspan_return_5x0", "5 x " + c5,0);
+//     // assert change == 0;
 
-            if ( tended >= needed ) { // deliver drink and partial reset (leave coins in return and drink in dispenser, but go to no drink selected)
-                int change = tended - needed;
-                result.setText("tspan_dollar_value_needed", "Thanks!" ,0);
-                int c100 = change % 100;
-                change = change - c100;
-                result.setText("tspan_return_5x0", "$1 x " + c100,0);
-                int c25 = change % 25;
-                change = change - c25;
-                result.setText("tspan_return_5x0", "25 x " + c25,0);
-                int c10 = change % 10;
-                change = change - c10;
-                result.setText("tspan_return_5x0", "10 x " + c10,0);
-                int c5 = change % 5;
-                change = change - c5;
-                result.setText("tspan_return_5x0", "5 x " + c5,0);
-                assert change == 0;
+//                 // run all the dispenser audio and animation
 
-                // run all the dispenser audio and animation
-
-                // and reset the lights
-            }
-            else {
-                result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(needed - tended)/100.0 ),0);
-            }
+//                 // and reset the lights
+//             }
+//             else {
+// //                result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(needed - tended)/100.0 ),0);
+//             }
         }
         else { // nothing selected, light them all (unless they are out?)
             for(Selection s: selection){
                 s.on(result,(int)(1000*Math.random()));
             }
         }
+    }
+    
+    void makeSelection(PostResult result){ // click on a variety button, Coke, for example
+    }
+
+    void serveSelection(PostResult result){ // tended >= price
+        // this animation sequence
+        // o  drop change, play sound
+        // o  add cup to dispenser, play plop sound
+        // o  wipes in the ice cubes, reveal up, and plays sound
+        // o  add lemon slice to rim, squish sound
+        // o  add lime slice to rim, squish sound
+        // o  add sugar specs, reveal down, play dust sound
+        // o  chooses fluid color with transparency over ice, color by choc, van, caf   reveal up
+        // o  raises cover to take drink, play up sound
+    }
+
+    void takeSelection(PostResult result){ // click on the dispenser
+        // o  remove all items from dispenser
+        // o  closes drink cover, play down sound
+        // o  nothing selected. change remains if not taken.
+    }
+
+    void addMoney(PostResult result, String idsuffix){ // includes mc/visa
+
+        if (id.endsWith("coin_return")) {
+            coinbox.coin_return(result);
+        }
+        else if (id.equals("mc_visa")) {
+            coinbox.mc_visa(result);
+        }
+        else {
+            coinbox.add(result, Integer.parseInt(id));
+        }
+    }
+
+    void takeChange(PostResult result){ // click on the change box rect_coin_change
+        coinbox.takeChange(result);
     }
 }

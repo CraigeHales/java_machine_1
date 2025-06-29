@@ -2,19 +2,19 @@ package controller;
 public class Addon {
 
     String yesName;
-    int yesPennies;
+    int yesCents;
     String noName;
-    int noPennies;
+    int noCents;
 
     String myId;
 
     boolean yes = false;
 
-    public Addon(String yesName, int yesPennies, String noName, int noPennies) {
+    public Addon(String yesName, int yesCents, String noName, int noCents) {
         this.yesName = yesName;
-        this.yesPennies = yesPennies;
+        this.yesCents = yesCents;
         this.noName = noName;
-        this.noPennies = noPennies;
+        this.noCents = noCents;
     }
 
     public static void reset(PostResult result){
@@ -43,10 +43,10 @@ public class Addon {
     public int getPrice(PostResult result) {
         // result.println("⚫  "+name);
         if (yes) {
-            return yesPennies;
+            return yesCents;
         }
         else {
-            return noPennies;
+            return noCents;
         }
     }
 

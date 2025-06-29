@@ -6,10 +6,10 @@ public class Selection {
     String textColor;
     String backColor;
     Addon[] add;
-    int pennies;
+    int cents;
     int nStock;
 
-    public Selection(String prodName,String id,String textColor,String backColor,int pennies,int nStock,Addon add0,Addon add1,Addon add2){
+    public Selection(String prodName,String id,String textColor,String backColor,int cents,int nStock,Addon add0,Addon add1,Addon add2){
         this.prodName = prodName;
         this.id = id;
         this.textColor = textColor;
@@ -18,7 +18,7 @@ public class Selection {
         this.add[0] = add0; 
         this.add[1] = add1; 
         this.add[2] = add2; 
-        this.pennies = pennies;
+        this.cents = cents;
         this.nStock = nStock;    
     }
 
@@ -76,6 +76,6 @@ public class Selection {
     }
 
     public int getPrice(PostResult result) {
-        return pennies + add[0].getPrice(result) + add[1].getPrice(result) + add[2].getPrice(result);
+        return cents + add[0].getPrice(result) + add[1].getPrice(result) + add[2].getPrice(result);
     }
 }
