@@ -91,7 +91,7 @@ public class Machine implements Executer {
             addMoney(result, id.substring(12));
         }
         else if ( id.equals("rect_coin_change") ) {
-            takeChange(result);
+            coinbox.emptyChangeReturn(result);
         }
 
         if ( gCurrentSelection != null ) {
@@ -181,11 +181,8 @@ public class Machine implements Executer {
             coinbox.pay_with_mc_visa(result);
         }
         else {
-            coinbox.add(result, Integer.parseInt(id));
+            coinbox.add(result, Integer.parseInt(idsuffix));
         }
     }
 
-    void takeChange(PostResult result){ // click on the change box rect_coin_change
-        coinbox.takeChange(result);
-    }
 }
