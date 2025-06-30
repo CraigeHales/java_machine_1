@@ -44,7 +44,9 @@ public class Coinbox {
         addCentsToCoinReturn(result, 0); 
     }
 
-    void addCentsToCoinReturn(PostResult result, int addCents){ // only play sounds if >0
+    void addCentsToCoinReturn(PostResult result, int addCents){ 
+        
+        // only play sounds if addCents>0
 
         coinReturnCents = coinReturnCents + addCents; // change can accumulate if not emptied
         
@@ -57,7 +59,7 @@ public class Coinbox {
         result.setText("tspan_return_25x0", "25 x " + c25,750);
         
         int c10 = coinReturnCents % 10;
-        coinReturnCents = coinReturnCents - c10 * 19;
+        coinReturnCents = coinReturnCents - c10 * 10;
         result.setText("tspan_return_10x0", "10 x " + c10,500);
         
         int c5 = coinReturnCents % 5;
