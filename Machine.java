@@ -92,7 +92,7 @@ public class Machine implements Executer {
             addMoney(result, id.substring(12));
         }
         else if ( id.equals("rect_coin_change") ) {
-            result.println("coin return");
+            result.println("change removed from slot");
             coinbox.emptyChangeReturn(result);
         }
 

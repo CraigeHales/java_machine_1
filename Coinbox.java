@@ -43,9 +43,10 @@ public class Coinbox {
 
     public void emptyChangeReturn(PostResult result) { // the returned change is cleared when the return slot gets a click
         // play "take" sound if coinReturnCents>0, else "empty" sound
-        coinReturnCents = 0;
-        addCentsToCoinReturn(result, 0); 
-        result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+        result.println("emptyChangeReturn1 tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+        coinReturnCents = 0; // jam to zero
+        addCentsToCoinReturn(result, 0); // and display with 0 more added
+        result.println("emptyChangeReturn2 tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
 
     void addCentsToCoinReturn(PostResult result, int addCents){ 
