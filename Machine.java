@@ -57,6 +57,7 @@ public class Machine implements Executer {
         result.setAudio("startup.mp3",0);
     }
     public void doClick(PostResult result, String id){
+        result.println(id);
         if (id.startsWith("init")) {            
             
         }
