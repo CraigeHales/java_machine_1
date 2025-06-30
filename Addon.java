@@ -27,11 +27,11 @@ public class Addon {
         myId = id;
         if (yes) {
             result.setText(id, yesName,0);
-          //  result.println("Addon.activateButton: " + yesName + " " + id + " " + id);
+            result.println("Addon.activateButton: " + yesName + " " + id + " " + id);
         }
         else {
             result.setText(id, noName,0);
-          //  result.println("Addon.activateButton: " + noName + " " + id + " " + id);
+            result.println("Addon.activateButton: " + noName + " " + id + " " + id);
         }
     }
 

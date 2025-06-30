@@ -30,7 +30,7 @@ public class Selection {
     }
     
     public void on(PostResult result,int delay){
-        result.println(prodName+"on"+delay);
+        //result.println(prodName+" on "+delay);
         result.setColor("rect_"+id, backColor,delay);
         result.setColor("tspan_"+id, textColor,delay);
     }
@@ -54,7 +54,7 @@ public class Selection {
         return c;
     }
     public void off(PostResult result, int delay){
-        result.println(prodName+"off"+delay);
+       // result.println(prodName+" off "+delay);
         result.setColor("rect_"+id, dim(backColor),delay);
         result.setColor("tspan_"+id, dim(textColor),delay);
     }
