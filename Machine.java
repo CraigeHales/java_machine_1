@@ -177,6 +177,7 @@ public class Machine implements Executer {
     void addMoney(PostResult result, String idsuffix){ // includes mc/visa and coin return
 
         if (idsuffix.equals("return")) {
+            result.println("add money running coin return");
             coinbox.move_tended_to_coin_return(result);
         }
         else if (idsuffix.equals("mc_visa")) {
