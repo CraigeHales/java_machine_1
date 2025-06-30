@@ -56,27 +56,29 @@ public class Coinbox {
 
         coinReturnCents = coinReturnCents + addCents; // change can accumulate if not emptied
         
-        int c100 = coinReturnCents / 100;
-        coinReturnCents = coinReturnCents % 100;
-        result.println("c100="+c100+" coinReturnCents="+coinReturnCents);
+        int balance = coinReturnCents; // balance gets destroyed as the coin values are taken out of it
+
+        int c100 = balance / 100;
+        balance = balance % 100;
+        result.println("c100="+c100+" balance="+balance);
         result.setText("tspan_return_100x0", "$1 x " + c100,1000);
 
-        int c25 = coinReturnCents / 25;
-        coinReturnCents = coinReturnCents % 25;
-        result.println("c25="+c25+" coinReturnCents="+coinReturnCents);
+        int c25 = balance / 25;
+        balance = balance % 25;
+        result.println("c25="+c25+" balance="+balance);
         result.setText("tspan_return_25x0", "25 x " + c25,750);
         
-        int c10 = coinReturnCents / 10;
-        coinReturnCents = coinReturnCents % 10;
-        result.println("c10="+c10+" coinReturnCents="+coinReturnCents);
+        int c10 = balance / 10;
+        balance = balance % 10;
+        result.println("c10="+c10+" balance="+balance);
         result.setText("tspan_return_10x0", "10 x " + c10,500);
         
-        int c5 = coinReturnCents / 5;
-        coinReturnCents = coinReturnCents % 5;
-        result.println("c5="+c5+" coinReturnCents="+coinReturnCents);
+        int c5 = balance / 5;
+        balance = balance % 5;
+        result.println("c5="+c5+" balance="+balance);
         result.setText("tspan_return_5x0", "5 x " + c5,250);
         
-        assert coinReturnCents == 0;
+        assert balance == 0;
         result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
 }
