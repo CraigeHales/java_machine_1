@@ -91,6 +91,7 @@ public class Machine implements Executer {
             addMoney(result, id.substring(12));
         }
         else if ( id.equals("rect_coin_change") ) {
+            System.out.println("coin return")
             coinbox.emptyChangeReturn(result);
         }
 
