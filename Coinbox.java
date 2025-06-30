@@ -2,35 +2,38 @@ package controller;
 import controller.PostResult;
 public class Coinbox {
 
-    private int tended=0;
+    private int tendedCents=0;
     private int coinReturnCents=0;
 
     final static int plastic = -1;
 
     public void pay_with_mc_visa(PostResult result){ // accept mc_visa instead of coins
         move_tended_to_coin_return(result);
-        tended = plastic; 
-    }
+        tendedCents = plastic; 
+        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+   }
 
     public void move_tended_to_coin_return(PostResult result){ // move coins (not mc_visa) from tended to returned
-        addCentsToCoinReturn(result,tended);
-        tended = 0;
+        addCentsToCoinReturn(result,tendedCents);
+        tendedCents = 0;
+        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
     
     public void addCentsToTended(PostResult result, int cents){
-        if (tended == plastic )
-            tended = 0; // clear plastic flag, switching to coins
-        tended = tended + cents;
+        if (tendedCents == plastic )
+            tendedCents = 0; // clear plastic flag, switching to coins
+        tendedCents = tendedCents + cents;
+        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
     
     public int getTended(PostResult result, int price){
-        if (tended==plastic)
+        if (tendedCents==plastic)
             return price; // could return 0 for bad credit 
-        return tended; 
+        return tendedCents; 
     }
 
     public void showTended(PostResult result, int price) {
-        if ( tended >= price ) { // deliver drink and partial reset (leave coins in return and drink in dispenser, but go to no drink selected)
+        if ( tendedCents >= price ) { // deliver drink and partial reset (leave coins in return and drink in dispenser, but go to no drink selected)
             result.setText("tspan_dollar_value_needed", "Thanks!" ,0);
         }
         else {
@@ -42,6 +45,7 @@ public class Coinbox {
         // play "take" sound if coinReturnCents>0, else "empty" sound
         coinReturnCents = 0;
         addCentsToCoinReturn(result, 0); 
+        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
 
     void addCentsToCoinReturn(PostResult result, int addCents){ 
@@ -67,5 +71,6 @@ public class Coinbox {
         result.setText("tspan_return_5x0", "5 x " + c5,250);
         
         assert coinReturnCents == 0;
+        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
 }
