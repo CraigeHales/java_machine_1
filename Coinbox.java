@@ -3,7 +3,7 @@ import controller.PostResult;
 public class Coinbox {
 
     private int tended=0;
-    private int change=0;
+    private int coinReturnCents=0;
 
     final static int plastic = -1;
 
@@ -39,29 +39,31 @@ public class Coinbox {
     }
 
     public void emptyChangeReturn(PostResult result) { // the returned change is cleared when the return slot gets a click
-        showChange(result, 0); // play "take" sound if >0, else "empty" sound
+        // play "take" sound if coinReturnCents>0, else "empty" sound
+        coinReturnCents = 0;
+        addCentsToCoinReturn(result, 0); 
     }
 
     void addCentsToCoinReturn(PostResult result, int addCents){ // only play sounds if >0
 
-        change = change + addCents; // change can accumulate if not emptied
+        coinReturnCents = coinReturnCents + addCents; // change can accumulate if not emptied
         
-        int c100 = change % 100;
-        change = change - c100 * 100;
+        int c100 = coinReturnCents % 100;
+        coinReturnCents = coinReturnCents - c100 * 100;
         result.setText("tspan_return_100x0", "$1 x " + c100,1000);
 
-        int c25 = change % 25;
-        change = change - c25 * 25;
+        int c25 = coinReturnCents % 25;
+        coinReturnCents = coinReturnCents - c25 * 25;
         result.setText("tspan_return_25x0", "25 x " + c25,750);
         
-        int c10 = change % 10;
-        change = change - c10 * 19;
+        int c10 = coinReturnCents % 10;
+        coinReturnCents = coinReturnCents - c10 * 19;
         result.setText("tspan_return_10x0", "10 x " + c10,500);
         
-        int c5 = change % 5;
-        change = change - c5 * 5;
+        int c5 = coinReturnCents % 5;
+        coinReturnCents = coinReturnCents - c5 * 5;
         result.setText("tspan_return_5x0", "5 x " + c5,250);
         
-        assert change == 0;
+        assert coinReturnCents == 0;
     }
 }
