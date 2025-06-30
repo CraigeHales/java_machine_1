@@ -37,7 +37,7 @@ public class Coinbox {
             result.setText("tspan_dollar_value_needed", "Thanks!" ,0);
         }
         else {
-            result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(price - tended)/100.0 ),0);
+            result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(price - tendedCents)/100.0 ),0);
         }
     }
 
