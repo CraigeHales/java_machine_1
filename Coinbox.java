@@ -56,23 +56,23 @@ public class Coinbox {
 
         coinReturnCents = coinReturnCents + addCents; // change can accumulate if not emptied
         
-        int c100 = coinReturnCents % 100;
-        coinReturnCents = coinReturnCents - c100 * 100;
+        int c100 = coinReturnCents / 100;
+        coinReturnCents = coinReturnCents % 100;
         result.println("c100="+c100+" coinReturnCents="+coinReturnCents);
         result.setText("tspan_return_100x0", "$1 x " + c100,1000);
 
-        int c25 = coinReturnCents % 25;
-        coinReturnCents = coinReturnCents - c25 * 25;
+        int c25 = coinReturnCents / 25;
+        coinReturnCents = coinReturnCents % 25;
         result.println("c25="+c25+" coinReturnCents="+coinReturnCents);
         result.setText("tspan_return_25x0", "25 x " + c25,750);
         
-        int c10 = coinReturnCents % 10;
-        coinReturnCents = coinReturnCents - c10 * 10;
+        int c10 = coinReturnCents / 10;
+        coinReturnCents = coinReturnCents % 10;
         result.println("c10="+c10+" coinReturnCents="+coinReturnCents);
         result.setText("tspan_return_10x0", "10 x " + c10,500);
         
-        int c5 = coinReturnCents % 5;
-        coinReturnCents = coinReturnCents - c5 * 5;
+        int c5 = coinReturnCents / 5;
+        coinReturnCents = coinReturnCents % 5;
         result.println("c5="+c5+" coinReturnCents="+coinReturnCents);
         result.setText("tspan_return_5x0", "5 x " + c5,250);
         
