@@ -10,20 +10,20 @@ public class Coinbox {
     public void pay_with_mc_visa(PostResult result){ // accept mc_visa instead of coins
         move_tended_to_coin_return(result);
         tendedCents = plastic; 
-        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+        result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
    }
 
     public void move_tended_to_coin_return(PostResult result){ // move coins (not mc_visa) from tended to returned
         addCentsToCoinReturn(result,tendedCents);
         tendedCents = 0;
-        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+        result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
     
     public void addCentsToTended(PostResult result, int cents){
         if (tendedCents == plastic )
             tendedCents = 0; // clear plastic flag, switching to coins
         tendedCents = tendedCents + cents;
-        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+        result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
     
     public int getTended(PostResult result, int price){
@@ -45,7 +45,7 @@ public class Coinbox {
         // play "take" sound if coinReturnCents>0, else "empty" sound
         coinReturnCents = 0;
         addCentsToCoinReturn(result, 0); 
-        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+        result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
 
     void addCentsToCoinReturn(PostResult result, int addCents){ 
@@ -71,6 +71,6 @@ public class Coinbox {
         result.setText("tspan_return_5x0", "5 x " + c5,250);
         
         assert coinReturnCents == 0;
-        reset.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
+        result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
 }
