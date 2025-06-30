@@ -14,7 +14,7 @@ public class Coinbox {
    }
 
     public void move_tended_to_coin_return(PostResult result){ // move coins (not mc_visa) from tended to returned
-        if (getTended()==0){
+        if (tendedCents==0){
             result.setAudio("groantick.mp3",0);
         }
         result.println("move_tended_to_coin_return1 tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
