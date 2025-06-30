@@ -96,7 +96,7 @@ public class Machine implements Executer {
 
         if ( gCurrentSelection != null ) {
             int needed = gCurrentSelection.getPrice(result);
-            int tended = coinbox.tended(result);
+            int tended = coinbox.getTended(result,needed);
             String thanks = null;
             if (needed > 0) {
                 if (tended > needed) {

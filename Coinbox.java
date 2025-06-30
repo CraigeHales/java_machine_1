@@ -7,14 +7,14 @@ public class Coinbox {
 
     final static int plastic = -1;
 
-    public void mc_visa(PostResult result){ // accept mc_visa instead of coins
+    public void pay_with_mc_visa(PostResult result){ // accept mc_visa instead of coins
         coin_return(result);
         tended = plastic; 
     }
 
-    public void coin_return(PostResult result){ // move coins (not mc_visa) from tended to returned
-        showChange(result,tended);
-        clearTended(result);
+    public void move_tended_to_coin_return(PostResult result){ // move coins (not mc_visa) from tended to returned
+        addCentsToCoinReturn(result,tended);
+        tended = 0;
     }
     
     public void add(PostResult result, int cents){
@@ -38,15 +38,13 @@ public class Coinbox {
         }
     }
 
-    public void clearTended(PostResult result) {
-        tended = 0;
-    }
-
     public void emptyChangeReturn(PostResult result) { // the returned change is cleared when the return slot gets a click
         showChange(result, 0); // play "take" sound if >0, else "empty" sound
     }
 
-    void addChangeReturn(PostResult result, int change){ // only play sounds if >0
+    void addCentsToCoinReturn(PostResult result, int addCents){ // only play sounds if >0
+
+        change = change + addCents; // change can accumulate if not emptied
         
         int c100 = change % 100;
         change = change - c100 * 100;
