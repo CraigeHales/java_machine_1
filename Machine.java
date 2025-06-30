@@ -181,7 +181,7 @@ public class Machine implements Executer {
             coinbox.pay_with_mc_visa(result);
         }
         else {
-            coinbox.add(result, Integer.parseInt(idsuffix));
+            coinbox.addCentsToTended(result, Integer.parseInt(idsuffix));
         }
     }
 

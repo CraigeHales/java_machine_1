@@ -8,7 +8,7 @@ public class Coinbox {
     final static int plastic = -1;
 
     public void pay_with_mc_visa(PostResult result){ // accept mc_visa instead of coins
-        coin_return(result);
+        move_tended_to_coin_return(result);
         tended = plastic; 
     }
 
@@ -17,7 +17,7 @@ public class Coinbox {
         tended = 0;
     }
     
-    public void add(PostResult result, int cents){
+    public void addCentsToTended(PostResult result, int cents){
         if (tended == plastic )
             tended = 0; // clear plastic flag, switching to coins
         tended = tended + cents;
