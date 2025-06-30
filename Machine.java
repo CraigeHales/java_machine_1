@@ -172,13 +172,13 @@ public class Machine implements Executer {
         // o  nothing selected. change remains if not taken.
     }
 
-    void addMoney(PostResult result, String idsuffix){ // includes mc/visa
+    void addMoney(PostResult result, String idsuffix){ // includes mc/visa and coin return
 
-        if (id.endsWith("coin_return")) {
-            coinbox.coin_return(result);
+        if (idsuffix.equals("return")) {
+            coinbox.move_tended_to_coin_return(result);
         }
-        else if (id.equals("mc_visa")) {
-            coinbox.mc_visa(result);
+        else if (idsuffix.equals("mc_visa")) {
+            coinbox.pay_with_mc_visa(result);
         }
         else {
             coinbox.add(result, Integer.parseInt(id));
