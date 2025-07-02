@@ -58,6 +58,7 @@ public class Machine implements Executer {
     }
     public void doClick(PostResult result, String id){
         //result.println(id);
+        result.setAudio("keypress.mp3",0);
         if (id.startsWith("init")) {            
             
         }
