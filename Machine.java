@@ -63,8 +63,8 @@ public class Machine implements Executer {
             
         }
         else {
-            result.setAudio("keypress.mp3",0);
             if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
+                result.setAudio("keypress.mp3",0);
                 result.println("machine.doclick("+id+")");
                 int idi = Integer.parseInt(id.substring(12));
                 selection[idi].press(result);
@@ -81,6 +81,7 @@ public class Machine implements Executer {
                 }
             }
             else if ( id.startsWith("circle_add") ) {
+                result.setAudio("keypress.mp3",0);
                 result.println("machine.doclick("+id+")");
                 int idi = Integer.parseInt(id.substring(10));
 
@@ -92,6 +93,9 @@ public class Machine implements Executer {
                 }
             }
             else if ( id.startsWith("circle_coin_") ) {
+                if (!id.equals("circle_coin_return") && !id.equals("circle_coin_mc_visa")){
+                    result.setAudio("keypress.mp3",0); // only the coin buttons
+                }
                 addMoney(result, id.substring(12));
             }
             else if ( id.equals("rect_coin_change") ) {
