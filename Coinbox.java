@@ -4,7 +4,11 @@ public class Coinbox {
 
     private int tendedCents=0;
     private int coinReturnCents=0;
-
+    // you can add more coins to the return slot without removing the old ones; keep track of 5,10,25,100 totals
+    private int coinReturn5=0;
+    private int coinReturn10=0;
+    private int coinReturn25=0;
+    private int coinReturn100=0;
     final static int plastic = -1;
 
     public void pay_with_mc_visa(PostResult result){ // accept mc_visa instead of coins
@@ -67,7 +71,7 @@ public class Coinbox {
 
         coinReturnCents = coinReturnCents + addCents; // change can accumulate if not emptied
         
-        int balance = coinReturnCents; // balance gets destroyed as the coin values are taken out of it
+        int balance = addCents; // balance gets destroyed as the coin values are taken out of it
         int delay = 0;
 
         int c100 = balance / 100;
@@ -76,8 +80,9 @@ public class Coinbox {
             result.setAudio("DropDollar.mp3",delay);
             delay+=500;
         }
+        coinReturn100 += c100;
         result.println("c100="+c100+" balance="+balance);
-        result.setText("tspan_return_100x0", "$1 x " + c100,delay);
+        result.setText("tspan_return_100x0", "$1 x " + coinReturn100,delay);
 
         int c25 = balance / 25;
         balance = balance % 25;
@@ -85,8 +90,9 @@ public class Coinbox {
             result.setAudio("DropQuarter.mp3",delay);
             delay+=500;
         }
+        coinReturn25 += c25;
         result.println("c25="+c25+" balance="+balance);
-        result.setText("tspan_return_25x0", "25 x " + c25,delay);
+        result.setText("tspan_return_25x0", "25 x " + coinReturn25,delay);
         
         int c10 = balance / 10;
         balance = balance % 10;
@@ -94,8 +100,9 @@ public class Coinbox {
             result.setAudio("DropDime.mp3",delay);
             delay+=500;
         }
+        coinReturn10 += c10;
         result.println("c10="+c10+" balance="+balance);
-        result.setText("tspan_return_10x0", "10 x " + c10,delay);
+        result.setText("tspan_return_10x0", "10 x " + coinReturn10,delay);
         
         int c5 = balance / 5;
         balance = balance % 5;
@@ -103,8 +110,9 @@ public class Coinbox {
             result.setAudio("DropNickel.mp3",delay);
             delay+=500;
         }
+        coinReturn5 += c5;
         result.println("c5="+c5+" balance="+balance);
-        result.setText("tspan_return_5x0", "5 x " + c5,delay);
+        result.setText("tspan_return_5x0", "5 x " + coinReturn5,delay);
         
         assert balance == 0;
         result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
