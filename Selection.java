@@ -65,10 +65,10 @@ public class Selection {
         for(int i=0; i<add.length; i+=1) {
             add[i].activateButton(result, "tspan_add"+i);
         }
-        result.setAudio("plop.mp3",0);
-        if (prodName.equals("Coke")) {
-            result.setAudio("ice.mp3",0);
-        }
+        // result.setAudio("plop.mp3",0);
+        // if (prodName.equals("Coke")) {
+        //     result.setAudio("ice.mp3",0);
+        // }
     }
 
     public Addon getAddon(int i) {
