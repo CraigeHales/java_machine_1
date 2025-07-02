@@ -62,42 +62,43 @@ public class Machine implements Executer {
         if (id.startsWith("init")) {            
             
         }
-        else if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
+        else {
             result.setAudio("keypress.mp3",0);
-            result.println("machine.doclick("+id+")");
-            int idi = Integer.parseInt(id.substring(12));
-            selection[idi].press(result);
-            gCurrentSelection = selection[idi];
-            int demodelay =0;
-            for(Selection s: selection){
-                if ( s == gCurrentSelection ) {
-                    s.on(result,100);
+            if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
+                result.println("machine.doclick("+id+")");
+                int idi = Integer.parseInt(id.substring(12));
+                selection[idi].press(result);
+                gCurrentSelection = selection[idi];
+                int demodelay =0;
+                for(Selection s: selection){
+                    if ( s == gCurrentSelection ) {
+                        s.on(result,100);
+                    }
+                    else {
+                        demodelay += 1;
+                        s.off(result,100*demodelay);
+                    }
+                }
+            }
+            else if ( id.startsWith("circle_add") ) {
+                result.println("machine.doclick("+id+")");
+                int idi = Integer.parseInt(id.substring(10));
+
+                if (gCurrentSelection != null){
+                    gCurrentSelection.getAddon(idi).press(result);
                 }
                 else {
-                    demodelay += 1;
-                    s.off(result,100*demodelay);
+                    result.setAudio("groantick.mp3",0);
                 }
             }
-        }
-        else if ( id.startsWith("circle_add") ) {
-            result.println("machine.doclick("+id+")");
-            int idi = Integer.parseInt(id.substring(10));
-
-            if (gCurrentSelection != null){
-                gCurrentSelection.getAddon(idi).press(result);
+            else if ( id.startsWith("circle_coin_") ) {
+                addMoney(result, id.substring(12));
             }
-            else {
-                result.setAudio("groantick.mp3",0);
+            else if ( id.equals("rect_coin_change") ) {
+                result.println("change removed from slot");
+                coinbox.emptyChangeReturn(result);
             }
         }
-        else if ( id.startsWith("circle_coin_") ) {
-            addMoney(result, id.substring(12));
-        }
-        else if ( id.equals("rect_coin_change") ) {
-            result.println("change removed from slot");
-            coinbox.emptyChangeReturn(result);
-        }
-
         if ( gCurrentSelection != null ) {
             int needed = gCurrentSelection.getPrice(result);
             int tended = coinbox.getTended(result,needed);
