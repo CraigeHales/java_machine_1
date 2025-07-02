@@ -58,11 +58,12 @@ public class Machine implements Executer {
     }
     public void doClick(PostResult result, String id){
         //result.println(id);
-        result.setAudio("keypress.mp3",0);
+        
         if (id.startsWith("init")) {            
             
         }
         else if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
+            result.setAudio("keypress.mp3",0);
             result.println("machine.doclick("+id+")");
             int idi = Integer.parseInt(id.substring(12));
             selection[idi].press(result);
