@@ -59,6 +59,18 @@ public class Coinbox {
         assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
     }
 
+    public void payFromTended(PostResult result, int price) {
+        if (tendedCents==plastic){
+            assert false; // handled earlier
+            tendedCents = 0;
+        } else if (tendedCents >= price) {
+            tendedCents -= price;
+        }
+        else {
+            assert false; // handled earlier
+        }
+    }
+
     public void emptyChangeReturn(PostResult result) { // the returned change is cleared when the return slot gets a click
         // play "take" sound if coinReturnCents>0, else "empty" sound
         assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;

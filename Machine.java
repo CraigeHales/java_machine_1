@@ -64,21 +64,7 @@ public class Machine implements Executer {
         }
         else {
             if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
-                result.setAudio("keypress.mp3",0);
-                result.println("machine.doclick("+id+")");
-                int idi = Integer.parseInt(id.substring(12));
-                selection[idi].press(result);
-                gCurrentSelection = selection[idi];
-                int demodelay =0;
-                for(Selection s: selection){
-                    if ( s == gCurrentSelection ) {
-                        s.on(result,100);
-                    }
-                    else {
-                        demodelay += 1;
-                        s.off(result,100*demodelay);
-                    }
-                }
+                makeSelection(result,id);
             }
             else if ( id.startsWith("circle_add") ) {
                 result.setAudio("keypress.mp3",0);
@@ -110,13 +96,19 @@ public class Machine implements Executer {
             if (needed > 0) {
                 if (tended > needed) {
                     thanks = "Change below";
+                    coinbox.payFromTended(result,needed);
+                    serveSelection(result);
                 }
                 else if (tended==needed) {
                     thanks = "You're cool";
+                    coinbox.payFromTended(result,needed);
+                    serveSelection(result);
                 }
                 else if (tended == -1) { // covered by mc/visa
                     thanks = "MC/Visa billed";
                     tended = needed;
+                    coinbox.payFromTended(result,needed);
+                    serveSelection(result);
                 }
                 else {
                     assert tended < needed;
@@ -125,6 +117,7 @@ public class Machine implements Executer {
             }
             else{
                 thanks = "Pick a Drink";
+                coinbox.move_tended_to_coin_return(result);
             }
             result.setText("tspan_still_needed",thanks,0);
             coinbox.showTended(result,needed);
@@ -160,10 +153,29 @@ public class Machine implements Executer {
         }
     }
     
-    void makeSelection(PostResult result){ // click on a variety button, Coke, for example
+    void makeSelection(PostResult result, int id){ // click on a variety button, Coke, for example
+        result.setAudio("keypress.mp3",0);
+        result.println("machine.doclick("+id+")");
+        int idi = Integer.parseInt(id.substring(12));
+        selection[idi].press(result);
+        gCurrentSelection = selection[idi];
+        int demodelay =0;
+        for(Selection s: selection){
+            if ( s == gCurrentSelection ) {
+                s.on(result,100);
+            }
+            else {
+                demodelay += 1;
+                s.off(result,100*demodelay);
+            }
+        }
     }
 
     void serveSelection(PostResult result){ // tended >= price
+        // ice first, if needed
+        if (gCurrentSelection != null){
+            result.setAudio("ice.mp3",0);
+        }
         // this animation sequence
         // o  drop change, play sound
         // o  add cup to dispenser, play plop sound
