@@ -153,7 +153,7 @@ public class Machine implements Executer {
         }
     }
     
-    void makeSelection(PostResult result, int id){ // click on a variety button, Coke, for example
+    void makeSelection(PostResult result, String id){ // click on a variety button, Coke, for example
         result.setAudio("keypress.mp3",0);
         result.println("machine.doclick("+id+")");
         int idi = Integer.parseInt(id.substring(12));
