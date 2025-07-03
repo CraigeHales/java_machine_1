@@ -53,7 +53,7 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        setOpacity("idIceCubes", "0", 0);
+        result.setOpacity("idIceCubes", "0", 0);
 
         Addon.reset(result);
         result.setAudio("startup.mp3",0);
