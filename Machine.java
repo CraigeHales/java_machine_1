@@ -53,12 +53,12 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        result.setOpacity("idIceCubes", "0.3", 6000);
-        result.setOpacity("idGlassCup", "0", 5000);
-        result.setOpacity("idLimeSlice", "0", 4000);
-        result.setOpacity("idLemonSlice", "0", 3000);
-        result.setOpacity("idCaffeineMolecule", "0", 2000);
-        result.setOpacity("idSugarMolecule", "0", 1000);
+        result.setOpacity("idIceCubes", "0", 600);
+        result.setOpacity("idGlassCup", "0", 500);
+        result.setOpacity("idLimeSlice", "0", 400);
+        result.setOpacity("idLemonSlice", "0", 300);
+        result.setOpacity("idCaffeineMolecule", "0", 200);
+        result.setOpacity("idSugarMolecule", "0", 100);
 
         Addon.reset(result);
         result.setAudio("startup.mp3",0);
