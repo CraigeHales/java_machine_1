@@ -96,18 +96,15 @@ public class Machine implements Executer {
             if (needed > 0) {
                 if (tended > needed) {
                     thanks = "Change below";
-                    coinbox.payFromTended(result,needed);
                     serveSelection(result);
                 }
                 else if (tended==needed) {
                     thanks = "You're cool";
-                    coinbox.payFromTended(result,needed);
                     serveSelection(result);
                 }
                 else if (tended == -1) { // covered by mc/visa
                     thanks = "MC/Visa billed";
                     tended = needed;
-                    coinbox.payFromTended(result,needed);
                     serveSelection(result);
                 }
                 else {
@@ -173,6 +170,8 @@ public class Machine implements Executer {
 
     void serveSelection(PostResult result){ // tended >= price
         // ice first, if needed
+        coinbox.payFromTended(result,needed);
+        coinbox.move_tended_to_coin_return(result);
         if (gCurrentSelection != null){
             result.setAudio("ice.mp3",0);
         }
