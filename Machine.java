@@ -170,6 +170,7 @@ public class Machine implements Executer {
 
     void serveSelection(PostResult result){ // tended >= price
         // ice first, if needed
+        int needed = gCurrentSelection.getPrice(result);
         coinbox.payFromTended(result,needed);
         coinbox.move_tended_to_coin_return(result);
         if (gCurrentSelection != null){
