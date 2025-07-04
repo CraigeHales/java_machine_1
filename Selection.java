@@ -22,7 +22,7 @@ public class Selection {
         this.nStock = nStock;    
     }
 
-    public boolean has(Sting addon) {
+    public boolean has(String addon) {
         return add[0].equals(addon) | add[1].equals(addon) | add[2].equals(addon) ;
     }
 
