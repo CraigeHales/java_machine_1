@@ -188,7 +188,10 @@ public class Machine implements Executer {
         coinbox.payFromTended(result,needed);
         coinbox.move_tended_to_coin_return(result);
         if (gCurrentSelection != null){
-            result.setAudio("ice.mp3",0);
+            result.setOpacity("idGlassCup", "1", 0);
+            result.setOpacity("idIceCubes", "1", 200);
+            
+            result.setAudio("ice.mp3",200);
         }
         // this animation sequence
         // o  drop change, play sound
