@@ -154,7 +154,9 @@ public class Machine implements Executer {
         // ice first, if needed
         int needed = gCurrentSelection.getPrice(result);
         coinbox.payFromTended(result,needed);
-        coinbox.move_tended_to_coin_return(result);
+        if (getTended(result, 0)) {
+            coinbox.move_tended_to_coin_return(result);
+        }
         if (gCurrentSelection != null){
             result.setOpacity("idGlassCup", "1", 0);
             result.setOpacity("idIceCubes", "1", 200);
