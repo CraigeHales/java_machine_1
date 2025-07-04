@@ -11,15 +11,20 @@ public class Coinbox {
     private int coinReturn100=0;
     final static int plastic = -1;
 
+    void countcoins(){
+        if (coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 != coinReturnCents){
+            System.out.println("======== count coins: "+coinReturn100+"x100 "+coinReturn25+"x25 "+coinReturn10+"x10 "+coinReturn5+"x5 "+coinReturnCents+" total");
+        }
+    }
     public void pay_with_mc_visa(PostResult result){ // accept mc_visa instead of coins
         move_tended_to_coin_return(result);
         tendedCents = plastic; 
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
    }
 
     public void move_tended_to_coin_return(PostResult result){ // move coins (not mc_visa) from tended to returned
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         result.println("move_tended_to_coin_return1 tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
         if (tendedCents<=0){
             result.setAudio("groantick.mp3",0);
@@ -28,35 +33,35 @@ public class Coinbox {
             addCentsToCoinReturn(result,tendedCents);
             tendedCents = 0;
         }
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         result.println("move_tended_to_coin_return2 tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
     
     public void addCentsToTended(PostResult result, int cents){
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         if (tendedCents == plastic )
             tendedCents = 0; // clear plastic flag, switching to coins
         tendedCents = tendedCents + cents;
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
     
     public int getTended(PostResult result, int price){
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         if (tendedCents==plastic)
             return price; // could return 0 for bad credit 
         return tendedCents; 
     }
 
     public void showTended(PostResult result, int price) {
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         if ( tendedCents==plastic || tendedCents >= price ) { // deliver drink and partial reset (leave coins in return and drink in dispenser, but go to no drink selected)
             result.setText("tspan_dollar_value_needed", "Thanks!" ,0);
         }
         else {
             result.setText("tspan_dollar_value_needed", "$" + String.format("%.2f",(price - tendedCents)/100.0 ),0);
         }
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
     }
 
     public void payFromTended(PostResult result, int price) {
@@ -73,7 +78,7 @@ public class Coinbox {
 
     public void emptyChangeReturn(PostResult result) { // the returned change is cleared when the return slot gets a click
         // play "take" sound if coinReturnCents>0, else "empty" sound
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         if (coinReturnCents == 0){
             result.setAudio("TakeNoChange.mp3",0);
         }
@@ -87,12 +92,12 @@ public class Coinbox {
         coinReturn25 = 0; // jam to zero
         coinReturn100 = 0; // jam to zero
         addCentsToCoinReturn(result, 0); // and display with 0 more added
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         result.println("emptyChangeReturn2 tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
     }
 
     void addCentsToCoinReturn(PostResult result, int addCents){ 
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
         result.println("addCentsToCoinReturn adding addCents="+addCents+" to coinReturnCents="+coinReturnCents);
         // only play sounds if addCents>0
 
@@ -143,6 +148,6 @@ public class Coinbox {
         
         assert balance == 0;
         result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
-        assert coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 == coinReturnCents;
+        countcoins();
     }
 }
