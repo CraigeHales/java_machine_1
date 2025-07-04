@@ -60,12 +60,12 @@ public class Machine implements Executer {
         // result.setOpacity("idCaffeineMolecule", "1", 0);
         // result.setOpacity("idSugarMolecule", "1", 0);
 
-        result.setOpacity("idIceCubes", "0", 600);
-        result.setOpacity("idGlassCup", "0", 500);
-        result.setOpacity("idLimeSlice", "0", 400);
-        result.setOpacity("idLemonSlice", "0", 300);
-        result.setOpacity("idCaffeineMolecule", "0", 200);
-        result.setOpacity("idSugarMolecule", "0", 100);
+        result.setOpacity("idIceCubes", "0", 0);
+        result.setOpacity("idGlassCup", "0", 0);
+        result.setOpacity("idLimeSlice", "0", 0);
+        result.setOpacity("idLemonSlice", "0", 0);
+        result.setOpacity("idCaffeineMolecule", "0", 0);
+        result.setOpacity("idSugarMolecule", "0", 0);
 
         Addon.reset(result);
         result.setAudio("startup.mp3",0);
