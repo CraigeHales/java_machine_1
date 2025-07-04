@@ -90,6 +90,10 @@ public class Machine implements Executer {
                 result.println("change removed from slot");
                 coinbox.emptyChangeReturn(result);
             }
+            else if ( id.equals("idDispenserBackground") ) {
+                takeSelection( result, 0);
+                result.setAudio("plop.mp3",0);
+            }
         }
         if ( gCurrentSelection != null ) {
             int needed = gCurrentSelection.getPrice(result);
