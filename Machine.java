@@ -53,7 +53,7 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        takeSelection(result); // clear leftovers
+        takeSelection(result,0); // clear leftovers
 
         Addon.reset(result);
         result.setAudio("startup.mp3",0);
@@ -190,9 +190,11 @@ public class Machine implements Executer {
         // o  add sugar specs, reveal down, play dust sound
         // o  chooses fluid color with transparency over ice, color by choc, van, caf   reveal up
         // o  raises cover to take drink, play up sound
+
+        takeSelection(result,999); // the thirsty person should have to click, but for now...
     }
 
-    void takeSelection(PostResult result){ // click on the dispenser
+    void takeSelection(PostResult result, int delay){ // click on the dispenser
         // o  remove all items from dispenser
         // o  closes drink cover, play down sound
         // o  nothing selected. change remains if not taken.
@@ -203,12 +205,12 @@ public class Machine implements Executer {
         // result.setOpacity("idCaffeineMolecule", "1", 0);
         // result.setOpacity("idSugarMolecule", "1", 0);
 
-        result.setOpacity("idIceCubes", "0", 0);
-        result.setOpacity("idGlassCup", "0", 0);
-        result.setOpacity("idLimeSlice", "0", 0);
-        result.setOpacity("idLemonSlice", "0", 0);
-        result.setOpacity("idCaffeineMolecule", "0", 0);
-        result.setOpacity("idSugarMolecule", "0", 0);
+        result.setOpacity("idIceCubes", "0", delay);
+        result.setOpacity("idGlassCup", "0", delay);
+        result.setOpacity("idLimeSlice", "0", delay);
+        result.setOpacity("idLemonSlice", "0", delay);
+        result.setOpacity("idCaffeineMolecule", "0", delay);
+        result.setOpacity("idSugarMolecule", "0", delay);
 
     }
 
