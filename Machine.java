@@ -159,9 +159,10 @@ public class Machine implements Executer {
         }
         if (gCurrentSelection != null){
             result.setOpacity("idGlassCup", "1", 0);
-            result.setOpacity("idIceCubes", "1", 200);
-            
-            result.setAudio("ice.mp3",200);
+            if ( gCurrentSelection.has("Ice") ) {
+                result.setOpacity("idIceCubes", "1", 200);
+                result.setAudio("ice.mp3",200);
+            }
         }
         // this animation sequence
         // o  drop change, play sound

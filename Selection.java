@@ -22,6 +22,10 @@ public class Selection {
         this.nStock = nStock;    
     }
 
+    public boolean has(Sting addon) {
+        return add[0].equals(addon) | add[1].equals(addon) | add[2].equals(addon) ;
+    }
+
     public void init(PostResult result){
         result.println("Selection.init: "+prodName);
         result.setColor("rect_"+id, backColor,0);

@@ -41,12 +41,20 @@ public class Addon {
     }
 
     public int getPrice(PostResult result) {
-        // result.println("⚫  "+name);
         if (yes) {
             return yesCents;
         }
         else {
             return noCents;
+        }
+    }
+
+    public String getName(PostResult result) {
+        if (yes) {
+            return yesName;
+        }
+        else {
+            return noName;
         }
     }
 
