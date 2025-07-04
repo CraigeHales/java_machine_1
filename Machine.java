@@ -53,19 +53,7 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        // result.setOpacity("idIceCubes", "1", 0);
-        // result.setOpacity("idGlassCup", "1", 0);
-        // result.setOpacity("idLimeSlice", "1", 0);
-        // result.setOpacity("idLemonSlice", "1", 0);
-        // result.setOpacity("idCaffeineMolecule", "1", 0);
-        // result.setOpacity("idSugarMolecule", "1", 0);
-
-        result.setOpacity("idIceCubes", "0", 0);
-        result.setOpacity("idGlassCup", "0", 0);
-        result.setOpacity("idLimeSlice", "0", 0);
-        result.setOpacity("idLemonSlice", "0", 0);
-        result.setOpacity("idCaffeineMolecule", "0", 0);
-        result.setOpacity("idSugarMolecule", "0", 0);
+        takeSelection(result); // clear leftovers
 
         Addon.reset(result);
         result.setAudio("startup.mp3",0);
@@ -208,6 +196,20 @@ public class Machine implements Executer {
         // o  remove all items from dispenser
         // o  closes drink cover, play down sound
         // o  nothing selected. change remains if not taken.
+        // result.setOpacity("idIceCubes", "1", 0);
+        // result.setOpacity("idGlassCup", "1", 0);
+        // result.setOpacity("idLimeSlice", "1", 0);
+        // result.setOpacity("idLemonSlice", "1", 0);
+        // result.setOpacity("idCaffeineMolecule", "1", 0);
+        // result.setOpacity("idSugarMolecule", "1", 0);
+
+        result.setOpacity("idIceCubes", "0", 0);
+        result.setOpacity("idGlassCup", "0", 0);
+        result.setOpacity("idLimeSlice", "0", 0);
+        result.setOpacity("idLemonSlice", "0", 0);
+        result.setOpacity("idCaffeineMolecule", "0", 0);
+        result.setOpacity("idSugarMolecule", "0", 0);
+
     }
 
     void addMoney(PostResult result, String idsuffix){ // includes mc/visa and coin return
