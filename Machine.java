@@ -154,7 +154,7 @@ public class Machine implements Executer {
         // ice first, if needed
         int needed = gCurrentSelection.getPrice(result);
         coinbox.payFromTended(result,needed);
-        if (getTended(result, 0)) {
+        if (coinbox.getTended(result, 0)) {
             coinbox.move_tended_to_coin_return(result);
         }
         if (gCurrentSelection != null){
