@@ -49,7 +49,7 @@ public class Addon {
         }
     }
 
-    public String getName(PostResult result) {
+    public String getName() {
         if (yes) {
             return yesName;
         }

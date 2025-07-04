@@ -23,7 +23,7 @@ public class Selection {
     }
 
     public boolean has(String addon) {
-        return add[0].equals(addon) | add[1].equals(addon) | add[2].equals(addon) ;
+        return add[0].getName().equals(addon) | add[1].getName().equals(addon) | add[2].getName().equals(addon) ; 
     }
 
     public void init(PostResult result){
