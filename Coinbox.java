@@ -17,7 +17,10 @@ public class Coinbox {
         }
     }
     public void pay_with_mc_visa(PostResult result){ // accept mc_visa instead of coins
-        move_tended_to_coin_return(result);
+        if (getTended(result, 0) > 0) {
+            move_tended_to_coin_return(result);
+        }
+
         tendedCents = plastic; 
         countcoins();
         result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
