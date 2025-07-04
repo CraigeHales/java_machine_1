@@ -53,7 +53,7 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        result.setOpacity("idIceCubes", "1", 0);   
+        result.setOpacity("idIceCubes", "1", 0);
         result.setOpacity("idGlassCup", "1", 0);
         result.setOpacity("idLimeSlice", "1", 0);
         result.setOpacity("idLemonSlice", "1", 0);
