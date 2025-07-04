@@ -191,7 +191,7 @@ public class Machine implements Executer {
         // o  chooses fluid color with transparency over ice, color by choc, van, caf   reveal up
         // o  raises cover to take drink, play up sound
 
-        takeSelection(result,999); // the thirsty person should have to click, but for now...
+     //   takeSelection(result,999); // the thirsty person should have to click, but for now...
     }
 
     void takeSelection(PostResult result, int delay){ // click on the dispenser
