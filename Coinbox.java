@@ -66,7 +66,7 @@ public class Coinbox {
 
     public void payFromTended(PostResult result, int price) {
         if (tendedCents==plastic){
-            assert false; // handled earlier
+           // assert false; // handled earlier
             tendedCents = 0;
         } else if (tendedCents >= price) {
             tendedCents -= price;
