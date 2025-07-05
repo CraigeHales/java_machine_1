@@ -163,6 +163,10 @@ public class Machine implements Executer {
                 result.setOpacity("idIceCubes", "1", 200);
                 result.setAudio("ice.mp3",200);
             }
+            if ( gCurrentSelection.has("Vanilla") ) {
+                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1.0,0,0.0)", 500);
+                //result.setAudio("ice.mp3",200);
+            }
         }
         // this animation sequence
         // o  drop change, play sound
@@ -194,6 +198,7 @@ public class Machine implements Executer {
         result.setOpacity("idLemonSlice", "0", delay);
         result.setOpacity("idCaffeineMolecule", "0", delay);
         result.setOpacity("idSugarMolecule", "0", delay);
+        result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", delay);
 
     }
 
