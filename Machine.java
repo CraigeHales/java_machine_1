@@ -32,7 +32,7 @@ public class Machine implements Executer {
             "#ffffff","#ff3333",// button text and background
             175,20,// price, nStock
             addIce,addCaffeine,addSugar,// possible addons 
-            "#553333",".77");// liquid color and transparency
+            "#351313",".87");// liquid color and transparency
         selection[1] = new Selection("7-Up","variety1","#333333","#66ff66",
             165,20,addIce,addLime,addSugar,"#005500",".11");
         selection[2] = new Selection("Sprite","variety2","#ffffff","#33aa33",
