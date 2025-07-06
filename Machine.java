@@ -164,28 +164,48 @@ public class Machine implements Executer {
             coinbox.move_tended_to_coin_return(result);
         }
         if (gCurrentSelection != null){
-            result.setOpacity("idGlassCup", "1", 0);
+            int delay = 0;
+            result.setOpacity("idGlassCup", "1", delay);
+            delay += 100;
+
             if ( gCurrentSelection.has("Ice") ) {
-                result.setOpacity("idIceCubes", "1", 100);
-                result.setAudio("ice.mp3",200);
+                result.setOpacity("idIceCubes", "1", delay);
+                result.setAudio("ice.mp3",delay);
+                delay += 100;
             }
 
-            result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,1,0,0.0)", 300); // reveal up
+            result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,1,0,0.0)", delay);
+            delay += 100;
 
             if ( gCurrentSelection.has("Vanilla") ) {
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", 350); // reveal up
+                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
+                delay += 100;
             }
+
             if ( gCurrentSelection.has("Choc") ) {
-                result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,1,0,0.0)", 400); // reveal up
+                result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
+                delay += 100;
             }
 
             if ( gCurrentSelection.has("Lime") ) {
-                result.setOpacity("idLimeSlice", "1", 500); // reveal up
-            }
-            if ( gCurrentSelection.has("Lemon") ) {
-                result.setOpacity("idLemonSlice", "1", 600); // reveal up
+                result.setOpacity("idLimeSlice", "1", delay);
+                delay += 100;
             }
 
+            if ( gCurrentSelection.has("Lemon") ) {
+                result.setOpacity("idLemonSlice", "1", delay);
+                delay += 100;
+            }
+
+            if ( gCurrentSelection.has("Caf") ) {
+                result.setOpacity("idCaffeineMolecule", "1", delay);
+                delay += 100;
+            }
+
+            if ( gCurrentSelection.has("Sugar") ) {
+                result.setOpacity("idSugarMolecule", "1", delay);
+                delay += 100;
+            }
             
         }
 
