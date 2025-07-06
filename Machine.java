@@ -171,11 +171,11 @@ public class Machine implements Executer {
             if ( gCurrentSelection.has("Ice") ) {
                 result.setOpacity("idIceCubes", "1", delay);
                 result.setAudio("ice.mp3",delay);
-                delay += 100;
+                delay += 300;
             }
 
             result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,1,0,0.0)", delay);
-            delay += 100;
+            delay += 400;
 
             if ( gCurrentSelection.has("Vanilla") ) {
                 result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
