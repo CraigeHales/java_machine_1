@@ -164,14 +164,14 @@ public class Machine implements Executer {
                 result.setAudio("ice.mp3",200);
             }
             if ( gCurrentSelection.has("Vanilla") ) {
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,  0/274,0,274)", 0);
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0, 25/274,0,250)", 50);
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0, 50/274,0,200)", 100);
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,100/274,0,150)", 150);
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,150/274,0,100)", 200);
+              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,  0/274,0,274)", 0);
+              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0, 25/274,0,250)", 50);
+              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0, 50/274,0,200)", 100);
+              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,100/274,0,150)", 150);
+              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,150/274,0,100)", 200);
                 result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,200/274,0, 50)", 250);
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,250/274,0, 25)", 300);
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,274/274,0,0.0)", 350);
+              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,250/274,0, 25)", 300);
+              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,274/274,0,0.0)", 350);
                 //result.setAudio("ice.mp3",200);
             }
         }
