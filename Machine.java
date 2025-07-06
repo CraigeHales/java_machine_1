@@ -164,7 +164,7 @@ public class Machine implements Executer {
                 result.setAudio("ice.mp3",200);
             }
             if ( gCurrentSelection.has("Vanilla") ) {
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.01,0,274)", 0);
+                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.1,0,274)", 0);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.2,0,250)", 50);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.3,0,200)", 100);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.4,0,150)", 150);
