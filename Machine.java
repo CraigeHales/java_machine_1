@@ -160,20 +160,20 @@ public class Machine implements Executer {
         if (gCurrentSelection != null){
             result.setOpacity("idGlassCup", "1", 0);
             if ( gCurrentSelection.has("Ice") ) {
-                result.setOpacity("idIceCubes", "1", 200);
+                result.setOpacity("idIceCubes", "1", 100);
                 result.setAudio("ice.mp3",200);
             }
+
+            result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,1,0,0.0)", 300); // reveal up
+
             if ( gCurrentSelection.has("Vanilla") ) {
-                //result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.01,0,274)", 0);
-              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.2,0,250)", 50);
-              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.3,0,200)", 100);
-              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.4,0,150)", 150);
-              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.5,0,137)", 201);
-                //result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.6,0, 50)", 250);
-              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.7,0, 25)", 300);
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", 350);
-                //result.setAudio("ice.mp3",200);
+                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", 350); // reveal up
             }
+            if ( gCurrentSelection.has("Choc") ) {
+                result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,1,0,0.0)", 400); // reveal up
+            }
+
+            
         }
         // this animation sequence
         // o  drop change, play sound
@@ -205,7 +205,9 @@ public class Machine implements Executer {
         result.setOpacity("idLemonSlice", "0", delay);
         result.setOpacity("idCaffeineMolecule", "0", delay);
         result.setOpacity("idSugarMolecule", "0", delay);
-        result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", delay);
+        result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
+        result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
+        result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
 
     }
 
