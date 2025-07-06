@@ -40,7 +40,7 @@ public class Machine implements Executer {
         selection[3] = new Selection("Water","variety3","#ffffff","#3377ff",
             135,20,addIce,addLemon,addLime,"#111111",".06");
         selection[4] = new Selection("Milk","variety4","#000000","#ffffff",
-            250,20,addIce,addChocolate,addVanilla,"#ffffff",".77");
+            250,20,addIce,addChocolate,addVanilla,"#ffffff",".87");
         selection[5] = new Selection("Citrus","variety5","#000000","#ffff00",
             200,20,addLemon,addLime,addSugar,"#999944",".33");
         coinbox = new Coinbox(); 
