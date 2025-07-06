@@ -164,14 +164,14 @@ public class Machine implements Executer {
                 result.setAudio("ice.mp3",200);
             }
             if ( gCurrentSelection.has("Vanilla") ) {
-                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.1,0,274)", 0);
+                //result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.01,0,274)", 0);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.2,0,250)", 50);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.3,0,200)", 100);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.4,0,150)", 150);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.5,0,137)", 201);
                 //result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.6,0, 50)", 250);
               //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.7,0, 25)", 300);
-              //  result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", 350);
+                result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", 350);
                 //result.setAudio("ice.mp3",200);
             }
         }
