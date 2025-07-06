@@ -179,6 +179,13 @@ public class Machine implements Executer {
                 result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,1,0,0.0)", 400); // reveal up
             }
 
+            if ( gCurrentSelection.has("LimeS") ) {
+                result.setOpacity("IdLimeSlice", "1", 500); // reveal up
+            }
+            if ( gCurrentSelection.has("Lemon") ) {
+                result.setOpacity("IdLemonSlice", "1", 600); // reveal up
+            }
+
             
         }
 
@@ -206,6 +213,8 @@ public class Machine implements Executer {
         result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
         result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
         result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
+        result.setOpacity("IdLimeSlice", "0", 500); // reveal up
+        result.setOpacity("IdLemonSlice", "0", 600); // reveal up
 
     }
 
