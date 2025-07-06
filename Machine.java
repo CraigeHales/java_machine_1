@@ -176,6 +176,7 @@ public class Machine implements Executer {
 
             result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,1,0,0.0)", delay);
             delay += 2000;
+            result.setAudio("pour.mp3",delay);
 
             if ( gCurrentSelection.has("Vanilla") ) {
                 result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
@@ -189,21 +190,25 @@ public class Machine implements Executer {
 
             if ( gCurrentSelection.has("Lime") ) {
                 result.setOpacity("idLimeSlice", "1", delay);
+                result.setAudio("lime.mp3",delay);
                 delay += 100;
             }
 
             if ( gCurrentSelection.has("Lemon") ) {
                 result.setOpacity("idLemonSlice", "1", delay);
+                result.setAudio("lemon.mp3",delay);
                 delay += 100;
             }
 
             if ( gCurrentSelection.has("Caf") ) {
                 result.setOpacity("idCaffeineMolecule", "1", delay);
+                result.setAudio("caffeine.mp3",delay);
                 delay += 500;
             }
 
             if ( gCurrentSelection.has("Sugar") ) {
                 result.setOpacity("idSugarMolecule", "1", delay);
+                result.setAudio("sugar.mp3",delay);
                 delay += 500;
             }
             
