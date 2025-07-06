@@ -28,18 +28,21 @@ public class Machine implements Executer {
         Addon addChocolate = new Addon("Choc",50,"No Choc",0);
         Addon addVanilla = new Addon("Vanilla",60,"No Van",0);
         selection = new Selection[6];
-        selection[0] = new Selection("Coke","variety0","#ffffff","#ff3333",
-            175,20,addIce,addCaffeine,addSugar);
+        selection[0] = new Selection("Coke","variety0",//button label, internal variety ID
+            "#ffffff","#ff3333",// button text and background
+            175,20,// price, nStock
+            addIce,addCaffeine,addSugar,// possible addons 
+            "#553333",".77");// liquid color and transparency
         selection[1] = new Selection("7-Up","variety1","#333333","#66ff66",
-            165,20,addIce,addLime,addSugar);
+            165,20,addIce,addLime,addSugar,"#005500",".11");
         selection[2] = new Selection("Sprite","variety2","#ffffff","#33aa33",
-            155,20,addIce,addLemon,addSugar);
+            155,20,addIce,addLemon,addSugar,"#444400",".11");
         selection[3] = new Selection("Water","variety3","#ffffff","#3377ff",
-            135,20,addIce,addLemon,addLime);
+            135,20,addIce,addLemon,addLime,"#111111",".06");
         selection[4] = new Selection("Milk","variety4","#000000","#ffffff",
-            250,20,addIce,addChocolate,addVanilla);
+            250,20,addIce,addChocolate,addVanilla,"#ffffff",".77");
         selection[5] = new Selection("Citrus","variety5","#000000","#ffff00",
-            200,20,addLemon,addLime,addSugar);
+            200,20,addLemon,addLime,addSugar,"#999944",".33");
         coinbox = new Coinbox(); 
     }
     boolean x=false;
@@ -133,6 +136,9 @@ public class Machine implements Executer {
     }
     
     void makeSelection(PostResult result, String id){ // click on a variety button, Coke, for example
+
+        // Fixme: make sure the dispenser is empty 
+
         result.setAudio("keypress.mp3",0);
         result.println("machine.doclick("+id+")");
         int idi = Integer.parseInt(id.substring(12));
@@ -175,17 +181,9 @@ public class Machine implements Executer {
 
             
         }
-        // this animation sequence
-        // o  drop change, play sound
-        // o  add cup to dispenser, play plop sound
-        // o  wipes in the ice cubes, reveal up, and plays sound
-        // o  add lemon slice to rim, squish sound
-        // o  add lime slice to rim, squish sound
-        // o  add sugar specs, reveal down, play dust sound
-        // o  chooses fluid color with transparency over ice, color by choc, van, caf   reveal up
-        // o  raises cover to take drink, play up sound
 
-     //   takeSelection(result,999); // the thirsty person should have to click, but for now...
+        // Fixme: buttons revert to attract mode 
+
     }
 
     void takeSelection(PostResult result, int delay){ // click on the dispenser

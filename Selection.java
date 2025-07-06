@@ -5,11 +5,13 @@ public class Selection {
     String id;
     String textColor;
     String backColor;
+    String liquidColor;
+    String liquidTransparency;
     Addon[] add;
     int cents;
     int nStock;
 
-    public Selection(String prodName,String id,String textColor,String backColor,int cents,int nStock,Addon add0,Addon add1,Addon add2){
+    public Selection(String prodName,String id,String textColor,String backColor,int cents,int nStock,Addon add0,Addon add1,Addon add2, String liquidColor, String liquidTransparency){
         this.prodName = prodName;
         this.id = id;
         this.textColor = textColor;
@@ -20,6 +22,8 @@ public class Selection {
         this.add[2] = add2; 
         this.cents = cents;
         this.nStock = nStock;    
+        this.liquidColor = liquidColor;
+        this.liquidTransparency = liquidTransparency;
     }
 
     public boolean has(String addon) {
@@ -64,11 +68,17 @@ public class Selection {
     }
     
     public void press(PostResult result){
+
+        // Fixme: make sure the dispenser is empty 
+
         result.println("select "+prodName);
         result.println("addons:");
         for(int i=0; i<add.length; i+=1) {
             add[i].activateButton(result, "tspan_add"+i);
         }
+
+        result.setColor("idLiquidDrink",liquidColor);
+        result.setOpacity("idLiquidDrink",liquidTransparency);
         // result.setAudio("plop.mp3",0);
         // if (prodName.equals("Coke")) {
         //     result.setAudio("ice.mp3",0);
