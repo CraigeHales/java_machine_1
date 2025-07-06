@@ -180,10 +180,10 @@ public class Machine implements Executer {
             }
 
             if ( gCurrentSelection.has("Lime") ) {
-                result.setOpacity("IdLimeSlice", "1", 500); // reveal up
+                result.setOpacity("idLimeSlice", "1", 500); // reveal up
             }
             if ( gCurrentSelection.has("Lemon") ) {
-                result.setOpacity("IdLemonSlice", "1", 600); // reveal up
+                result.setOpacity("idLemonSlice", "1", 600); // reveal up
             }
 
             
