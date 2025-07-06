@@ -199,12 +199,12 @@ public class Machine implements Executer {
 
             if ( gCurrentSelection.has("Caf") ) {
                 result.setOpacity("idCaffeineMolecule", "1", delay);
-                delay += 100;
+                delay += 500;
             }
 
             if ( gCurrentSelection.has("Sugar") ) {
                 result.setOpacity("idSugarMolecule", "1", delay);
-                delay += 100;
+                delay += 500;
             }
             
         }
