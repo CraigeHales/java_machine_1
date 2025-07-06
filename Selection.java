@@ -77,8 +77,8 @@ public class Selection {
             add[i].activateButton(result, "tspan_add"+i);
         }
 
-        result.setColor("idLiquidDrink",liquidColor);
-        result.setOpacity("idLiquidDrink",liquidTransparency);
+        result.setColor("idLiquidDrink",liquidColor,0);
+        result.setOpacity("idLiquidDrink",liquidTransparency,0);
         // result.setAudio("plop.mp3",0);
         // if (prodName.equals("Coke")) {
         //     result.setAudio("ice.mp3",0);
