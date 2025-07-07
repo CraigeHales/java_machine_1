@@ -242,11 +242,10 @@ public class Machine implements Executer {
         gCurrentSelection = null;
         for(Selection s: selection){
             if ( s == gCurrentSelection ) {
-                s.on(result,100);
+                s.on(result,0);
             }
             else {
-                demodelay += 1;
-                s.off(result,100*demodelay);
+                s.off(result,0);
             }
         }
         
