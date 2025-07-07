@@ -175,8 +175,8 @@ public class Machine implements Executer {
             }
 
             result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,1,0,0.0)", delay);
-            delay += 2000;
             result.setAudio("pour.mp3",delay);
+            delay += 2000;
 
             if ( gCurrentSelection.has("Vanilla") ) {
                 result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
