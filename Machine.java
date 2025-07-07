@@ -56,9 +56,8 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        takeSelection(result,0); // clear leftovers
+        takeSelection(result,0); // clear leftovers, all lights on
 
-        Addon.reset(result);
         result.setAudio("startup.mp3",0);
     }
     public void doClick(PostResult result, String id){
@@ -238,6 +237,20 @@ public class Machine implements Executer {
         result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
         result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
         result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
+
+        // restore the selection buttons
+        gCurrentSelection = null;
+        for(Selection s: selection){
+            if ( s == gCurrentSelection ) {
+                s.on(result,100);
+            }
+            else {
+                demodelay += 1;
+                s.off(result,100*demodelay);
+            }
+        }
+        
+        Addon.reset(result);
     }
 
     void addMoney(PostResult result, String idsuffix){ // includes mc/visa and coin return
