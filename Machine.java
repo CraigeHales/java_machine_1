@@ -228,15 +228,15 @@ public class Machine implements Executer {
         // result.setOpacity("idCaffeineMolecule", "1", 0);
         // result.setOpacity("idSugarMolecule", "1", 0);
 
-        result.setOpacity("idIceCubes", "0", delay);
-        result.setOpacity("idGlassCup", "0", delay);
-        result.setOpacity("idLimeSlice", "0", delay);
-        result.setOpacity("idLemonSlice", "0", delay);
-        result.setOpacity("idCaffeineMolecule", "0", delay);
-        result.setOpacity("idSugarMolecule", "0", delay);
-        result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
-        result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
-        result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", delay); // hide down
+        result.setOpacity("idIceCubes", "0", 1500);
+        result.setOpacity("idGlassCup", "0", 2000); // remove cup last
+        result.setOpacity("idLimeSlice", "0", 500);
+        result.setOpacity("idLemonSlice", "0", 1000);
+        result.setOpacity("idCaffeineMolecule", "0", 200);
+        result.setOpacity("idSugarMolecule", "0", 700);
+        result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+        result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+        result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
 
         // restore the selection buttons
         gCurrentSelection = null;
