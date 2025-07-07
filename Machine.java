@@ -127,11 +127,11 @@ public class Machine implements Executer {
             result.setText("tspan_still_needed",thanks,0);
             coinbox.showTended(result,needed);
         }
-        else { // nothing selected, light them all (unless they are out?)
-            for(Selection s: selection){
-                s.on(result,(int)(1000*Math.random()));
-            }
-        }
+        // else { // nothing selected, light them all (unless they are out?)
+        //     for(Selection s: selection){
+        //         s.on(result,(int)(1000*Math.random()));
+        //     }
+        // }
     }
     
     void makeSelection(PostResult result, String id){ // click on a variety button, Coke, for example
@@ -241,12 +241,7 @@ public class Machine implements Executer {
         // restore the selection buttons
         gCurrentSelection = null;
         for(Selection s: selection){
-            if ( s == gCurrentSelection ) {
-                s.on(result,0);
-            }
-            else {
-                s.off(result,0);
-            }
+            s.on(result,0);
         }
         
         Addon.reset(result);
