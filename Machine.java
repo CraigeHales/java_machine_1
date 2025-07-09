@@ -178,12 +178,14 @@ public class Machine implements Executer {
 
             if ( gCurrentSelection.has("Vanilla") ) {
                 result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
-                delay += 100;
+                result.setAudio("pour.mp3",delay);
+                delay += 1000;
             }
 
             if ( gCurrentSelection.has("Choc") ) {
                 result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
-                delay += 100;
+                result.setAudio("pour.mp3",delay);
+                delay += 1000;
             }
 
             if ( gCurrentSelection.has("Lime") ) {
