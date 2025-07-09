@@ -226,16 +226,8 @@ public class Machine implements Executer {
     }
 
     void takeSelection(PostResult result, int delay){ // click on the dispenser
-        // o  remove all items from dispenser
-        // o  closes drink cover, play down sound
-        // o  nothing selected. change remains if not taken.
-        // result.setOpacity("idIceCubes", "1", 0);
-        // result.setOpacity("idGlassCup", "1", 0);
-        // result.setOpacity("idLimeSlice", "1", 0);
-        // result.setOpacity("idLemonSlice", "1", 0);
-        // result.setOpacity("idCaffeineMolecule", "1", 0);
-        // result.setOpacity("idSugarMolecule", "1", 0);
 
+        result.println("takeselection "+delay);
         result.setOpacity("idIceCubes", "0", 1500);
         result.setOpacity("idGlassCup", "0", 2000); // remove cup last
         result.setOpacity("idLimeSlice", "0", 500);
