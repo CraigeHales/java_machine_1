@@ -200,18 +200,18 @@ public class Machine implements Executer {
                 delay += 100;
             }
 
-            if ( gCurrentSelection.has("Caf") ) {
-                result.setOpacity("idCaffeineMolecule", "1", delay);
-                result.setAudio("caffeine.mp3",delay);
-                delay += 500;
-            }
-
             if ( gCurrentSelection.has("Sugar") ) {
                 result.setOpacity("idSugarMolecule", "1", delay);
                 result.setAudio("sugar.mp3",delay);
                 delay += 500;
             }
             
+            if ( gCurrentSelection.has("Caf") ) {
+                result.setOpacity("idCaffeineMolecule", "1", delay);
+                result.setAudio("caffeine.mp3",delay);
+                delay += 500;
+            }
+
             dispenserIsEmpty = false;    
         }
 
