@@ -215,10 +215,10 @@ public class Machine implements Executer {
             dispenserIsEmpty = false;    
         }
 
-        // restore the selection buttons
+        // disable the selection buttons until drink removed
         gCurrentSelection = null;
         for(Selection s: selection){
-            s.on(result,0);
+            s.gray(result,0);
         }
         
         Addon.reset(result);
@@ -239,6 +239,13 @@ public class Machine implements Executer {
         result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
 
         dispenserIsEmpty = true;
+        // enable the selection buttons after drink removed
+        gCurrentSelection = null;
+        for(Selection s: selection){
+            s.on(result,0);
+        }
+        
+        Addon.reset(result);
 
     }
 

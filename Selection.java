@@ -42,7 +42,13 @@ public class Selection {
         result.setColor("rect_"+id, backColor,delay);
         result.setColor("tspan_"+id, textColor,delay);
     }
-    
+
+    public void gray(PostResult result, int delay){
+       // result.println(prodName+" off "+delay);
+        result.setColor("rect_"+id, "#333333",delay);
+        result.setColor("tspan_"+id, "#444444",delay);
+    }
+
     String dim(String c) { // cut the brightness in half. more or less.
         c=c.replace("1","0");
         c=c.replace("2","1");
