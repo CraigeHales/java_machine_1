@@ -220,16 +220,14 @@ public class Machine implements Executer {
             }
 
             dispenserIsEmpty = false;    
-        }
+            Addon.takeBelow(result,delay);
 
-        // disable the selection buttons until drink removed
-        gCurrentSelection = null;
-        for(Selection s: selection){
-            s.gray(result,0);
+            // disable the selection buttons until drink removed
+            gCurrentSelection = null;
+            for(Selection s: selection){
+                s.gray(result,0);
+            }
         }
-        
-        Addon.takeBelow(result,delay);
-
     }
 
     void takeSelection(PostResult result, int delay){ // click on the dispenser
