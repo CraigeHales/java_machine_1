@@ -7,19 +7,26 @@ public class Machine implements Executer {
     static Selection gCurrentSelection = null;
     boolean dispenserIsEmpty = true;
     Coinbox coinbox = null;
+    final String caffeine = "Caffeine";
+    final String ice = "Ice";
+    final String sugar = "Sugar";
+    final String lime = "Lime";
+    final String lemon = "Lemon";
+    final String chocolate = "chocolate";
+    final String vanilla = "Vanilla";
  //   static Coins coins = null;
     public Machine(/*PostResult result*/){
         // there are more addon possibilities than buttons; each selection will
         // choose exactly three addons for the three buttons. Each addon remembers
         // its current state; if it is shared between two selections then the
         // state is shared as well.
-        Addon addIce = new Addon("Ice",40,"No Ice",0);
-        Addon addCaffeine = new Addon("Caf",0,"Decaf",10);
-        Addon addSugar = new Addon("Sugar",30,"Diet",0);
-        Addon addLime = new Addon("Lime",10,"No Lime",0);
-        Addon addLemon = new Addon("Lemon",10,"No Lemon",0);
-        Addon addChocolate = new Addon("Choc",50,"No Choc",0);
-        Addon addVanilla = new Addon("Vanilla",60,"No Van",0);
+        Addon addIce = new Addon(ice,40,"/",0);
+        Addon addCaffeine = new Addon(caffeine,0,"/",10);
+        Addon addSugar = new Addon(sugar,30,"/",0);
+        Addon addLime = new Addon(lime,10,"/",0);
+        Addon addLemon = new Addon(lemon,10,"/",0);
+        Addon addChocolate = new Addon(chocolate,50,"/",0);
+        Addon addVanilla = new Addon(vanilla,60,"/",0);
         selection = new Selection[6];
         selection[0] = new Selection("Coke","variety0",//button label, internal variety ID
             "#ffffff","#ff3333",// button text and background
@@ -166,7 +173,7 @@ public class Machine implements Executer {
             result.setOpacity("idGlassCup", "1", delay);
             delay += 100;
 
-            if ( gCurrentSelection.has("Ice") ) {
+            if ( gCurrentSelection.wants(ice) ) {
                 result.setOpacity("idIceCubes", "1", delay);
                 result.setAudio("ice.mp3",delay);
                 delay += 300;
@@ -176,37 +183,37 @@ public class Machine implements Executer {
             result.setAudio("pour.mp3",delay);
             delay += 2000;
 
-            if ( gCurrentSelection.has("Vanilla") ) {
+            if ( gCurrentSelection.wants(vanilla) ) {
                 result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
                 result.setAudio("pour.mp3",delay);
                 delay += 1000;
             }
 
-            if ( gCurrentSelection.has("Choc") ) {
+            if ( gCurrentSelection.wants(chocolate) ) {
                 result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,1,0,0.0)", delay);
                 result.setAudio("pour.mp3",delay);
                 delay += 1000;
             }
 
-            if ( gCurrentSelection.has("Lime") ) {
+            if ( gCurrentSelection.wants(lime) ) {
                 result.setOpacity("idLimeSlice", "1", delay);
                 result.setAudio("lime.mp3",delay);
                 delay += 100;
             }
 
-            if ( gCurrentSelection.has("Lemon") ) {
+            if ( gCurrentSelection.wants(lemon) ) {
                 result.setOpacity("idLemonSlice", "1", delay);
                 result.setAudio("lemon.mp3",delay);
                 delay += 100;
             }
 
-            if ( gCurrentSelection.has("Sugar") ) {
+            if ( gCurrentSelection.wants(sugar) ) {
                 result.setOpacity("idSugarMolecule", "1", delay);
                 result.setAudio("sugar.mp3",delay);
                 delay += 500;
             }
             
-            if ( gCurrentSelection.has("Caf") ) {
+            if ( gCurrentSelection.wants(caffeine) ) {
                 result.setOpacity("idCaffeineMolecule", "1", delay);
                 result.setAudio("caffeine.mp3",delay);
                 delay += 500;

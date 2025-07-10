@@ -49,7 +49,7 @@ public class Addon {
         }
     }
 
-    public String getName() {
+    public String setting() {
         if (yes) {
             return yesName;
         }

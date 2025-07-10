@@ -26,8 +26,8 @@ public class Selection {
         this.liquidTransparency = liquidTransparency;
     }
 
-    public boolean has(String addon) {
-        return add[0].getName().equals(addon) | add[1].getName().equals(addon) | add[2].getName().equals(addon) ; 
+    public boolean wants(String addon) {
+        return add[0].setting().equals(addon) | add[1].setting().equals(addon) | add[2].setting().equals(addon) ; 
     }
 
     public void init(PostResult result){
