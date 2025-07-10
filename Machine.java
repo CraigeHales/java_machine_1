@@ -242,7 +242,7 @@ public class Machine implements Executer {
         // enable the selection buttons after drink removed
         gCurrentSelection = null;
         for(Selection s: selection){
-            s.on(result,2000+(int)(1000*Math.random()));
+            s.on(result,1000+(int)(1000*Math.random()));
         }
         
         Addon.reset(result);
