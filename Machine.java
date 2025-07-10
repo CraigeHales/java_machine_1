@@ -228,7 +228,7 @@ public class Machine implements Executer {
             s.gray(result,0);
         }
         
-        Addon.reset(result);
+        Addon.takeBelow(result,delay);
 
     }
 

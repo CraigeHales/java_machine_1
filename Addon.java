@@ -23,6 +23,13 @@ public class Addon {
         result.setText("tspan_add2","Above",0);
     }
 
+    public static void takeBelow(PostResult result, int delay){
+        result.setText("tspan_add0","Take",delay);
+        result.setText("tspan_add1","Drink",delay);
+        result.setText("tspan_add2","Below",delay);
+    }
+
+
     public void activateButton(PostResult result, String id) {
         myId = id;
         if (yes) {
