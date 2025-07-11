@@ -94,7 +94,6 @@ public class Machine implements Executer {
             }
             else if ( id.equals("idDispenserBackground") ) {
                 takeSelection( result, 0);
-                result.setAudio("plop.mp3",0);
             }
         }
         if ( gCurrentSelection != null ) {
@@ -232,26 +231,39 @@ public class Machine implements Executer {
 
     void takeSelection(PostResult result, int delay){ // click on the dispenser
 
-        result.println("takeselection "+delay);
-        result.setOpacity("idIceCubes", "0", 1500);
-        result.setOpacity("idGlassCup", "0", 2000); // remove cup last
-        result.setOpacity("idLimeSlice", "0", 500);
-        result.setOpacity("idLemonSlice", "0", 1000);
-        result.setOpacity("idCaffeineMolecule", "0", 200);
-        result.setOpacity("idSugarMolecule", "0", 700);
-        result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
-        result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
-        result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+        //result.println("takeselection "+delay);
+        if (!dispenserIsEmpty) {
+            result.setOpacity("idIceCubes", "0", 1500);
+            result.setOpacity("idGlassCup", "0", 2000); // remove cup last
+            result.setOpacity("idLimeSlice", "0", 500);
+            result.setOpacity("idLemonSlice", "0", 1000);
+            result.setOpacity("idCaffeineMolecule", "0", 200);
+            result.setOpacity("idSugarMolecule", "0", 700);
+            result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+            result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+            result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
 
-        dispenserIsEmpty = true;
-        // enable the selection buttons after drink removed
-        gCurrentSelection = null;
-        for(Selection s: selection){
-            s.on(result,1000+(int)(1000*Math.random()));
+            result.setAudio("plop.mp3",0);
+            dispenserIsEmpty = true;
+            // enable the selection buttons after drink removed
+            gCurrentSelection = null;
+            for(Selection s: selection){
+                s.on(result,1000+(int)(1000*Math.random()));
+            }            
+            Addon.reset(result);
         }
-        
-        Addon.reset(result);
+        else {
+            result.setOpacity("idIceCubes", "0", 0);
+            result.setOpacity("idGlassCup", "0", 0); // remove cup last
+            result.setOpacity("idLimeSlice", "0", 0);
+            result.setOpacity("idLemonSlice", "0", 0);
+            result.setOpacity("idCaffeineMolecule", "0", 0);
+            result.setOpacity("idSugarMolecule", "0", 0);
+            result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+            result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+            result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
 
+        }
     }
 
     void addMoney(PostResult result, String idsuffix){ // includes mc/visa and coin return
