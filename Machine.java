@@ -57,7 +57,7 @@ public class Machine implements Executer {
         }
 
         result.setOpacity("idIceCubes", "0", 0);
-        result.setOpacity("idGlassCup", "0", 0); // remove cup last
+        result.setOpacity("idGlassCup", "0", 0);
         result.setOpacity("idLimeSlice", "0", 0);
         result.setOpacity("idLemonSlice", "0", 0);
         result.setOpacity("idCaffeineMolecule", "0", 0);
@@ -91,18 +91,28 @@ public class Machine implements Executer {
                     result.setAudio("groantick.mp3",0);
                 }
             }
-            else if ( id.startsWith("circle_coin_") ) {
-                if (!id.equals("circle_coin_return") && !id.equals("circle_coin_mc_visa")){
-                    result.setAudio("keypress.mp3",0); // only the coin buttons
+            else if (id.equals("circle_coin_return")) {
+                coinbox.move_tended_to_coin_return(result);
+            }
+            else if (id.equals("circle_coin_mc_visa")) {
+                if (readyForMoney) {
+                    coinbox.pay_with_mc_visa(result);
                 }
-                addMoney(result, id.substring(12));
+            }
+            else if ( id.startsWith("circle_coin_") ) {
+                if (readyForMoney) {
+                    result.setAudio("keypress.mp3",0); // only the coin buttons
+                    coinbox.addCentsToTended(result, Integer.parseInt(id.substring(12)));
+                }
             }
             else if ( id.equals("rect_coin_change") ) {
-                result.println("change removed from slot");
                 coinbox.emptyChangeReturn(result);
             }
             else if ( id.equals("idDispenserBackground") ) {
                 takeSelection( result );
+            }
+            else {
+                result.println("unhandled: "+id);
             }
         }
         if ( gCurrentSelection != null ) {
@@ -264,18 +274,5 @@ public class Machine implements Executer {
         }
     }
 
-    void addMoney(PostResult result, String idsuffix){ // includes mc/visa and coin return
-
-        if (idsuffix.equals("return")) {
-            result.println("add money running coin return");
-            coinbox.move_tended_to_coin_return(result);
-        }
-        else if (idsuffix.equals("mc_visa")) {
-            coinbox.pay_with_mc_visa(result);
-        }
-        else {
-            coinbox.addCentsToTended(result, Integer.parseInt(idsuffix));
-        }
-    }
 
 }
