@@ -95,12 +95,12 @@ public class Machine implements Executer {
                 coinbox.move_tended_to_coin_return(result);
             }
             else if (id.equals("circle_coin_mc_visa")) {
-                if (readyForMoney) {
+                if (isReadyForMoney()) {
                     coinbox.pay_with_mc_visa(result);
                 }
             }
             else if ( id.startsWith("circle_coin_") ) {
-                if (readyForMoney) {
+                if (isReadyForMoney()) {
                     result.setAudio("keypress.mp3",0); // only the coin buttons
                     coinbox.addCentsToTended(result, Integer.parseInt(id.substring(12)));
                 }
@@ -274,5 +274,12 @@ public class Machine implements Executer {
         }
     }
 
+    boolean isSelectionMade() {
+        return gCurrentSelection != null;
+    }
+
+    boolean isReadyForMoney() {
+        return isSelectionMade();
+    }
 
 }
