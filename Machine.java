@@ -56,8 +56,17 @@ public class Machine implements Executer {
             selection[i].init(result); 
         }
 
-        takeSelection(result,0); // clear leftovers, all lights on
+        result.setOpacity("idIceCubes", "0", 0);
+        result.setOpacity("idGlassCup", "0", 0); // remove cup last
+        result.setOpacity("idLimeSlice", "0", 0);
+        result.setOpacity("idLemonSlice", "0", 0);
+        result.setOpacity("idCaffeineMolecule", "0", 0);
+        result.setOpacity("idSugarMolecule", "0", 0);
+        result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+        result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
+        result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
 
+        Addon.reset(result);
         result.setAudio("startup.mp3",0);
     }
     public void doClick(PostResult result, String id){
@@ -93,7 +102,7 @@ public class Machine implements Executer {
                 coinbox.emptyChangeReturn(result);
             }
             else if ( id.equals("idDispenserBackground") ) {
-                takeSelection( result, 0);
+                takeSelection( result );
             }
         }
         if ( gCurrentSelection != null ) {
@@ -229,9 +238,7 @@ public class Machine implements Executer {
         }
     }
 
-    void takeSelection(PostResult result, int delay){ // click on the dispenser
-
-        //result.println("takeselection "+delay);
+    void takeSelection(PostResult result){ // click on the dispenser
         if (!dispenserIsEmpty) {
             result.setOpacity("idIceCubes", "0", 1500);
             result.setOpacity("idGlassCup", "0", 2000); // remove cup last
@@ -253,16 +260,7 @@ public class Machine implements Executer {
             Addon.reset(result);
         }
         else {
-            result.setOpacity("idIceCubes", "0", 0);
-            result.setOpacity("idGlassCup", "0", 0); // remove cup last
-            result.setOpacity("idLimeSlice", "0", 0);
-            result.setOpacity("idLemonSlice", "0", 0);
-            result.setOpacity("idCaffeineMolecule", "0", 0);
-            result.setOpacity("idSugarMolecule", "0", 0);
-            result.setTransform("idVanillacreamAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
-            result.setTransform("idLiquidDrinkTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
-            result.setTransform("idChocolateAddinTransform", "matrix(1,0,0,0.001,0,274)", 0); // hide down
-
+            result.setAudio("NothingInDispenser.mp3",0);
         }
     }
 
