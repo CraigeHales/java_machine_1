@@ -27,7 +27,7 @@ public class Selection {
     }
 
     public boolean wants(String addon) {
-        return add[0].setting().equals(addon) | add[1].setting().equals(addon) | add[2].setting().equals(addon) ; 
+        return add[0].get().equals(addon) | add[1].get().equals(addon) | add[2].get().equals(addon) ; 
     }
 
     public void init(PostResult result){

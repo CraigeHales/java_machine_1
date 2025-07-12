@@ -1,20 +1,40 @@
 package controller;
 public class Addon {
 
-    String yesName;
-    int yesCents;
-    String noName;
-    int noCents;
+    private String[] name;
+    private int[] cents;
 
-    String myId;
+    private String myId;
 
-    boolean yes = false;
+    private int setting = 0;
 
-    public Addon(String yesName, int yesCents, String noName, int noCents) {
-        this.yesName = yesName;
-        this.yesCents = yesCents;
-        this.noName = noName;
-        this.noCents = noCents;
+    public Addon(Object... choiceNameAndPricePairs) {
+        int nitems = choiceNameAndPricePairs.length;
+        if (nitems % 2 != 0){
+            System.out.println("--------------not even addon parms--------------");
+            assert false;
+        }
+        int npairs = nitems/2;
+        name = new String[npairs];
+        cost = new int[ npairs];
+        for(int i = 0; i<npairs; i+=1){
+            Object o = choiceNameAndPricePairs[2*i+0];
+            if (o instanceof String ){
+                name[i] = (String)o;
+            }
+            else {
+                System.out.println("--------------not String addon parms--------------");
+                assert false;
+            }
+            Object o = choiceNameAndPricePairs[2*i+1];
+            if (o instanceof Integer ){
+                cost[i] = (Integer)o;
+            }
+            else {
+                System.out.println("--------------not Integer addon parms--------------");
+                assert false;
+            }
+        }
     }
 
     public static void reset(PostResult result){
@@ -32,37 +52,20 @@ public class Addon {
 
     public void activateButton(PostResult result, String id) {
         myId = id;
-        if (yes) {
-            result.setText(id, yesName,0);
-            result.println("Addon.activateButton: " + yesName + " " + id + " " + id);
-        }
-        else {
-            result.setText(id, noName,0);
-            result.println("Addon.activateButton: " + noName + " " + id + " " + id);
-        }
+        result.setText(id, name[setting],0);
     }
 
     public void press(PostResult result) {
-        yes = !yes;
+        setting = (setting+1) % name.length;
         activateButton(result,myId);
     }
 
     public int getPrice(PostResult result) {
-        if (yes) {
-            return yesCents;
-        }
-        else {
-            return noCents;
-        }
+        return cents[setting];
     }
 
-    public String setting() {
-        if (yes) {
-            return yesName;
-        }
-        else {
-            return noName;
-        }
+    public String get() {
+        return name[setting];
     }
 
 }
