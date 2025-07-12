@@ -2,7 +2,7 @@ package controller;
 public class Addon {
 
     private String[] name;
-    private int[] cents;
+    private int[] cost;
 
     private String myId;
 
@@ -61,7 +61,7 @@ public class Addon {
     }
 
     public int getPrice(PostResult result) {
-        return cents[setting];
+        return cost[setting];
     }
 
     public String get() {
