@@ -9,24 +9,30 @@ public class Machine implements Executer {
     Coinbox coinbox = null;
     final String caffeine = "Caffeine";
     final String ice = "Ice";
+    final String warm = "Warm";
     final String sugar = "Sugar";
+    final String unsweet = "Unsweet";
+    final String diet = "Diet";
     final String lime = "Lime";
     final String lemon = "Lemon";
-    final String chocolate = "chocolate";
+    final String nothanks = "none";
+    final String chocolate = "Choc";
     final String vanilla = "Vanilla";
+    final String nothing = "x";
+    final String decaf = "Decaf";
  //   static Coins coins = null;
     public Machine(/*PostResult result*/){
         // there are more addon possibilities than buttons; each selection will
         // choose exactly three addons for the three buttons. Each addon remembers
         // its current state; if it is shared between two selections then the
         // state is shared as well.
-        Addon addIce = new Addon(ice,40,"/",0);
-        Addon addCaffeine = new Addon(caffeine,0,"/",10);
-        Addon addSugar = new Addon(sugar,30,"/",0);
-        Addon addLime = new Addon(lime,10,"/",0);
-        Addon addLemon = new Addon(lemon,10,"/",0);
-        Addon addChocolate = new Addon(chocolate,50,"/",0);
-        Addon addVanilla = new Addon(vanilla,60,"/",0);
+        Addon addIce = new Addon(nothing,0,ice,40,warm,0);
+        Addon addCaffeine = new Addon(nothing,0,caffeine,0,decaf,10);
+        Addon addSugar = new Addon(nothing,0,sugar,30,unsweet,0,diet,50);
+        Addon addLime = new Addon(nothing,0,lime,10,nothanks,0);
+        Addon addLemon = new Addon(nothing,0,lemon,10,nothanks,0);
+        Addon addChocolate = new Addon(nothing,0,chocolate,50,nothanks,0);
+        Addon addVanilla = new Addon(nothing,0,vanilla,60,nothanks,0);
         selection = new Selection[6];
         selection[0] = new Selection("Coke","variety0",//button label, internal variety ID
             "#ffffff","#ff3333",// button text and background
