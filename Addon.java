@@ -26,7 +26,7 @@ public class Addon {
                 System.out.println("--------------not String addon parms--------------");
                 assert false;
             }
-            Object o = choiceNameAndPricePairs[2*i+1];
+            o = choiceNameAndPricePairs[2*i+1];
             if (o instanceof Integer ){
                 cost[i] = (Integer)o;
             }
