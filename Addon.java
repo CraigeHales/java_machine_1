@@ -56,7 +56,7 @@ public class Addon {
     }
 
     public void press(PostResult result) {
-        setting = (setting+1) % name.length;
+        setting = setting % (name.length-1) + 1;
         activateButton(result,myId);
     }
 

@@ -18,7 +18,7 @@ public class Machine implements Executer {
     final String nothanks = "none";
     final String chocolate = "Choc";
     final String vanilla = "Vanilla";
-    final String nothing = "x";
+    final String nothing = "?";
     final String decaf = "Decaf";
  //   static Coins coins = null;
     public Machine(/*PostResult result*/){
