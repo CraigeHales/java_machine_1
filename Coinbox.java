@@ -11,6 +11,8 @@ public class Coinbox {
     private int coinReturn100=0;
     final static int plastic = -1;
 
+    private static final String buttoncolor = "#fbfb74";
+
     void countcoins(){
         if (coinReturn5 * 5 + coinReturn10 * 10 + coinReturn25 * 25 + coinReturn100 * 100 != coinReturnCents){
             System.out.println("======== count coins: "+coinReturn100+"x100 "+coinReturn25+"x25 "+coinReturn10+"x10 "+coinReturn5+"x5 "+coinReturnCents+" total");
@@ -157,10 +159,10 @@ public class Coinbox {
         result.setText("tspan_dollar_value_needed", "$",0);
      }
      void disableMoneyButtons(PostResult result){
-        
+        result.setColor("circle_coin_mc_visa", Machine.dim(buttoncolor),delay);
      }
      void enableMoneyButtons(PostResult result){
-        
+        result.setColor("circle_coin_mc_visa", buttoncolor, delay);        
      }
 
 }
