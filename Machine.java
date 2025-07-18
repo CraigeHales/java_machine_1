@@ -150,6 +150,9 @@ public class Machine implements Executer {
             }
             result.setText("tspan_still_needed",thanks,0);
             coinbox.showTended(result,needed);
+        }
+        
+        if ( gCurrentSelection != null ) {
             coinbox.enableMoneyButtons(result);
         }
         else { // nothing selected, light them all (unless they are out?)
