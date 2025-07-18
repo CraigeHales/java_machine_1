@@ -131,7 +131,7 @@ public class Machine implements Executer {
                     serveSelection(result);
                 }
                 else if (tended==needed) {
-                    thanks = "You're cool";
+                    thanks = "Thank you";
                     serveSelection(result);
                 }
                 else if (tended == -1) { // covered by mc/visa
@@ -141,7 +141,7 @@ public class Machine implements Executer {
                 }
                 else {
                     assert tended < needed;
-                    thanks = "still needed";
+                    thanks = "need "+needed-tended;
                 }
             }
             else{
