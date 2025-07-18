@@ -159,10 +159,10 @@ public class Coinbox {
         result.setText("tspan_dollar_value_needed", "$",0);
      }
      void disableMoneyButtons(PostResult result){
-        result.setColor("circle_coin_mc_visa", Machine.dim(buttoncolor),delay);
+        result.setColor("circle_coin_mc_visa", Machine.dim(buttoncolor),0);
      }
      void enableMoneyButtons(PostResult result){
-        result.setColor("circle_coin_mc_visa", buttoncolor, delay);        
+        result.setColor("circle_coin_mc_visa", buttoncolor, 0);        
      }
 
 }
