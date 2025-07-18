@@ -51,8 +51,8 @@ public class Selection {
 
     public void off(PostResult result, int delay){
        // result.println(prodName+" off "+delay);
-        result.setColor("rect_"+id, dim(backColor),delay);
-        result.setColor("tspan_"+id, dim(textColor),delay);
+        result.setColor("rect_"+id, Machine.dim(backColor),delay);
+        result.setColor("tspan_"+id, Machine.dim(textColor),delay);
     }
     
     public void press(PostResult result){
