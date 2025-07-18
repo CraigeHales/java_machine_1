@@ -152,4 +152,15 @@ public class Coinbox {
         result.println("tendedCents="+tendedCents+" coinReturnCents="+coinReturnCents);
         countcoins();
     }
+
+     void clearPrice(PostResult result){
+        result.setText("tspan_dollar_value_needed", "$",0);
+     }
+     void disableMoneyButtons(PostResult result){
+        
+     }
+     void enableMoneyButtons(PostResult result){
+        
+     }
+
 }

@@ -151,13 +151,32 @@ public class Machine implements Executer {
             result.setText("tspan_still_needed",thanks,0);
             coinbox.showTended(result,needed);
         }
-        // else { // nothing selected, light them all (unless they are out?)
-        //     for(Selection s: selection){
-        //         s.on(result,(int)(1000*Math.random()));
-        //     }
-        // }
+        else { // nothing selected, light them all (unless they are out?)
+            coinbox.clearPrice(result);
+            coinbox.disableMoneyButtons(result);
+        }
     }
     
+    public static String dim(String c) { // cut the brightness in half. more or less.
+        c=c.replace("1","0");
+        c=c.replace("2","1");
+        c=c.replace("3","1");
+        c=c.replace("4","2");
+        c=c.replace("5","2");
+        c=c.replace("6","3");
+        c=c.replace("7","3");
+        c=c.replace("8","4");
+        c=c.replace("9","4");
+        c=c.replace("a","5");
+        c=c.replace("b","5");
+        c=c.replace("c","6");
+        c=c.replace("d","6");
+        c=c.replace("e","7");
+        c=c.replace("f","7");
+        return c;
+    }
+
+
     void makeSelection(PostResult result, String id){ // click on a variety button, Coke, for example
 
         if (!dispenserIsEmpty) {
