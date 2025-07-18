@@ -141,7 +141,7 @@ public class Machine implements Executer {
                 }
                 else {
                     assert tended < needed;
-                    thanks = "need "+needed-tended;
+                    thanks = "need "+ String.format("%.2f",(needed-tended)/100.0 );
                 }
             }
             else{
