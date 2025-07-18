@@ -160,9 +160,17 @@ public class Coinbox {
      }
      void disableMoneyButtons(PostResult result){
         result.setColor("circle_coin_mc_visa", Machine.dim(buttoncolor),0);
+        result.setColor("circle_coin_5", Machine.dim(buttoncolor),0);
+        result.setColor("circle_coin_10", Machine.dim(buttoncolor),0);
+        result.setColor("circle_coin_25", Machine.dim(buttoncolor),0);
+        result.setColor("circle_coin_100", Machine.dim(buttoncolor),0);
      }
      void enableMoneyButtons(PostResult result){
         result.setColor("circle_coin_mc_visa", buttoncolor, 0);        
+        result.setColor("circle_coin_5", buttoncolor, 0);        
+        result.setColor("circle_coin_10", buttoncolor, 0);        
+        result.setColor("circle_coin_25", buttoncolor, 0);        
+        result.setColor("circle_coin_100", buttoncolor, 0);        
      }
 
 }
