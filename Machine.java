@@ -184,7 +184,7 @@ public class Machine implements Executer {
     void makeSelection(PostResult result, String id){ // click on a variety button, Coke, for example
 
         if (!dispenserIsEmpty) {
-            result.println("<<< dispenser is not empty!!! >>>");
+            //result.println("<<< dispenser is not empty!!! >>>");
             result.setAudio("groantick.mp3",0);
             return;
         }
