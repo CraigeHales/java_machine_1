@@ -193,7 +193,7 @@ public class Machine implements Executer {
 
         result.setAudio("keypress.mp3",0);
         result.println("machine.doclick("+id+")");
-        int idi = Integer.parseInt(id.substring(12));
+        int idi = Integer.parseInt(id.substring(9)); // g_variety0..5
         selection[idi].press(result);
         gCurrentSelection = selection[idi];
         int demodelay =0;
