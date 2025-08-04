@@ -82,13 +82,13 @@ public class Machine implements Executer {
             
         }
         else {
-            if ( id.startsWith("rect_variety") ){ //  || id.startsWith("circle_add")
+            if ( id.startsWith("g_variety") ){ //  || id.startsWith("circle_add")
                 makeSelection(result,id);
             }
-            else if ( id.startsWith("circle_add") ) {
+            else if ( id.startsWith("g_add") ) {
                 result.setAudio("keypress.mp3",0);
                 result.println("machine.doclick("+id+")");
-                int idi = Integer.parseInt(id.substring(10));
+                int idi = Integer.parseInt(id.substring(5));
 
                 if (gCurrentSelection != null){
                     gCurrentSelection.getAddon(idi).press(result);
@@ -97,24 +97,24 @@ public class Machine implements Executer {
                     result.setAudio("groantick.mp3",0);
                 }
             }
-            else if (id.equals("circle_coin_return")) {
+            else if (id.equals("g_coin_return")) {
                 coinbox.move_tended_to_coin_return(result);
             }
-            else if (id.equals("circle_coin_mc_visa")) {
+            else if (id.equals("g_mc_visa")) {
                 if (isReadyForMoney()) {
                     coinbox.pay_with_mc_visa(result);
                 }
             }
-            else if ( id.startsWith("circle_coin_") ) {
+            else if ( id.startsWith("g_") ) {
                 if (isReadyForMoney()) {
                     result.setAudio("keypress.mp3",0); // only the coin buttons
-                    coinbox.addCentsToTended(result, Integer.parseInt(id.substring(12)));
+                    coinbox.addCentsToTended(result, Integer.parseInt(id.substring(2)));
                 }
             }
-            else if ( id.equals("rect_coin_change") ) {
+            else if ( id.equals("g_change") ) {
                 coinbox.emptyChangeReturn(result);
             }
-            else if ( id.equals("idDispenserBackground") ) {
+            else if ( id.equals("g_dispenser") ) {
                 takeSelection( result );
             }
             else {
