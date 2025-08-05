@@ -105,17 +105,17 @@ public class Machine implements Executer {
                     coinbox.pay_with_mc_visa(result);
                 }
             }
-            else if ( id.startsWith("g_") ) {
-                if (isReadyForMoney()) {
-                    result.setAudio("keypress.mp3",0); // only the coin buttons
-                    coinbox.addCentsToTended(result, Integer.parseInt(id.substring(2)));
-                }
-            }
             else if ( id.equals("g_change") ) {
                 coinbox.emptyChangeReturn(result);
             }
             else if ( id.equals("g_dispenser") ) {
                 takeSelection( result );
+            }
+            else if ( id.equals("g_5") || id.equals("g_10") || id.equals("g_25") || id.equals("g_100") ) {
+                if (isReadyForMoney()) {
+                    result.setAudio("keypress.mp3",0); // only the coin buttons
+                    coinbox.addCentsToTended(result, Integer.parseInt(id.substring(2)));
+                }
             }
             else {
                 result.println("unhandled: "+id);
