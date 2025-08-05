@@ -178,7 +178,7 @@ public class Machine implements Executer {
         c=c.replace("e","7");
         c=c.replace("f","7");
         return c;
-    } 
+    }
 
 
     void makeSelection(PostResult result, String id){ // click on a variety button, Coke, for example
