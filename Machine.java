@@ -54,6 +54,8 @@ public class Machine implements Executer {
     boolean x=false;
     public void init(PostResult result){
         result.println("Machine.init()");
+        // which one are we?
+        reslult.setText("tspan_load","Team 1");
         // give the machine a name
         result.setText("tspan_java_machine","Ice Cold Drinks",0);
         result.setColor("tspan_java_machine","#3366ff",0);
